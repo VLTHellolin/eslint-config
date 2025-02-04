@@ -1,18 +1,24 @@
+import { ignores } from "./configs/ignores";
 import { javascript } from "./configs/javascript";
 import { typescript } from "./configs/typescript";
 import { resolveOptions } from "./options";
-import { FlatConfig, Options } from "./types";
+import { FlatConfig, Options, ResolvedOptions } from "./types";
 
-export function defineConfig(userOptions: Options, ...eslintOptions: FlatConfig) {
+export function defineConfig(userOptions?: Options, ...eslintOptions: FlatConfig) {
   const options = resolveOptions(userOptions);
-  const presetConfig = [];
+  const presets: ((opt: ResolvedOptions) => FlatConfig)[] = [];
 
-  presetConfig.push(javascript());
+  presets.push(ignores);
+  presets.push(javascript);
   if (options.typescript) {
-    presetConfig.push(typescript(options));
+    presets.push(typescript);
   }
 
-  const config = [
+  const presetConfig = presets.reduce<FlatConfig>(
+    (res, fn) => res.concat(fn(options)),
+    []
+  );
+  const config: FlatConfig = [
     ...presetConfig,
     ...eslintOptions,
   ];
