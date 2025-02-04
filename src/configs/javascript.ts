@@ -1,5 +1,5 @@
 import globals from 'globals';
-import { FlatConfig } from '../types';
+import type { FlatConfig } from '../types';
 import { default as pluginUnusedImports } from 'eslint-plugin-unused-imports'
 
 export function javascript(): FlatConfig {
@@ -27,12 +27,15 @@ export function javascript(): FlatConfig {
       linterOptions: {
         reportUnusedDisableDirectives: true,
       },
-      plugins: {
-        'unused-imports': pluginUnusedImports,
-      },
     },
     {
       name: 'hellolin/javascript/rules',
+      files: [
+        '**/*.?([cm])[jt]s?(x)'
+      ],
+      plugins: {
+        'unused-imports': pluginUnusedImports,
+      },
       rules: {
         'array-callback-return': 'error',
         'block-scoped-var': 'error',
