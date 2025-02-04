@@ -102,7 +102,7 @@ export function typescript(options: ResolvedOptions): FlatConfig {
         parserOptions: {
           sourceType: 'module',
           projectService: true,
-          tsconfigRootDir: process.cwd(),
+          tsconfigRootDir: (typeof options.typescript === 'object' && options.typescript.tsconfigRootDir) || process.cwd(),
         },
       },
     },

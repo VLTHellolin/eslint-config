@@ -1,5 +1,5 @@
 import type { Linter } from 'eslint';
-import { FlatGitignoreOptions } from 'eslint-config-flat-gitignore';
+import type { FlatGitignoreOptions } from 'eslint-config-flat-gitignore';
 
 export type FlatConfigItem = Linter.Config;
 export type FlatConfig = FlatConfigItem[];
@@ -13,6 +13,7 @@ export interface Options {
     strict?: boolean;
     stylistic?: boolean;
     enableAnyRelatedRules?: boolean;
+    tsconfigRootDir?: string;
   };
 }
 

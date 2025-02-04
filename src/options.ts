@@ -1,4 +1,4 @@
-import { Options, ResolvedOptions } from './types';
+import type { Options, ResolvedOptions } from './types';
 
 export function resolveOptions(options?: Options): ResolvedOptions {
   return {
