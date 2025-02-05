@@ -1,9 +1,9 @@
-import { ignores } from "./configs/ignores";
-import { javascript } from "./configs/javascript";
-import { stylistic } from "./configs/stylistic";
-import { typescript } from "./configs/typescript";
-import { resolveOptions } from "./options";
-import type { FlatConfig, Options, ResolvedOptions } from "./types";
+import { ignores } from './configs/ignores';
+import { javascript } from './configs/javascript';
+import { stylistic } from './configs/stylistic';
+import { typescript } from './configs/typescript';
+import { resolveOptions } from './options';
+import type { FlatConfig, Options, ResolvedOptions } from './types';
 
 export function defineConfig(userOptions?: Options, ...eslintOptions: FlatConfig) {
   const options = resolveOptions(userOptions);
@@ -20,7 +20,7 @@ export function defineConfig(userOptions?: Options, ...eslintOptions: FlatConfig
 
   const presetConfig = presets.reduce<FlatConfig>(
     (res, fn) => res.concat(fn(options)),
-    []
+    [],
   );
   const config: FlatConfig = [
     ...presetConfig,

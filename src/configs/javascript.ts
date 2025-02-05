@@ -1,6 +1,6 @@
 import globals from 'globals';
 import type { FlatConfig } from '../types';
-import { default as pluginUnusedImports } from 'eslint-plugin-unused-imports'
+import { default as pluginUnusedImports } from 'eslint-plugin-unused-imports';
 
 export function javascript(): FlatConfig {
   return [
@@ -18,24 +18,18 @@ export function javascript(): FlatConfig {
         },
         parserOptions: {
           ecmaVersion: 2025,
-          ecmaFeatures: {
-            jsx: true,
-          },
+          ecmaFeatures: { jsx: true },
           sourceType: 'module',
-        }
+        },
       },
-      linterOptions: {
-        reportUnusedDisableDirectives: true,
-      },
+      linterOptions: { reportUnusedDisableDirectives: true },
     },
     {
       name: 'hellolin/javascript/rules',
       files: [
-        '**/*.?([cm])[jt]s?(x)'
+        '**/*.?([cm])[jt]s?(x)',
       ],
-      plugins: {
-        'unused-imports': pluginUnusedImports,
-      },
+      plugins: { 'unused-imports': pluginUnusedImports },
       rules: {
         'array-callback-return': 'error',
         'block-scoped-var': 'error',
@@ -43,7 +37,11 @@ export function javascript(): FlatConfig {
         'default-case-last': 'error',
         'dot-notation': ['error', { allowKeywords: true }],
         'eqeqeq': ['error', 'smart'],
-        'new-cap': ['error', { capIsNew: false, newIsCap: true, properties: true }],
+        'new-cap': ['error', {
+          capIsNew: false,
+          newIsCap: true,
+          properties: true,
+        }],
         'no-alert': 'error',
         'no-array-constructor': 'error',
         'no-async-promise-executor': 'error',
@@ -77,7 +75,10 @@ export function javascript(): FlatConfig {
         'no-invalid-regexp': 'error',
         'no-irregular-whitespace': 'error',
         'no-iterator': 'error',
-        'no-labels': ['error', { allowLoop: false, allowSwitch: false }],
+        'no-labels': ['error', {
+          allowLoop: false,
+          allowSwitch: false,
+        }],
         'no-lone-blocks': 'error',
         'no-loss-of-precision': 'error',
         'no-misleading-character-class': 'error',
@@ -95,16 +96,37 @@ export function javascript(): FlatConfig {
         'no-regex-spaces': 'error',
         'no-restricted-globals': [
           'error',
-          { message: 'Use `globalThis` instead.', name: 'global' },
-          { message: 'Use `globalThis` instead.', name: 'self' },
+          {
+            message: 'Use `globalThis` instead.',
+            name: 'global',
+          },
+          {
+            message: 'Use `globalThis` instead.',
+            name: 'self',
+          },
         ],
         'no-restricted-properties': [
           'error',
-          { message: 'Use `Object.getPrototypeOf` or `Object.setPrototypeOf` instead.', property: '__proto__' },
-          { message: 'Use `Object.defineProperty` instead.', property: '__defineGetter__' },
-          { message: 'Use `Object.defineProperty` instead.', property: '__defineSetter__' },
-          { message: 'Use `Object.getOwnPropertyDescriptor` instead.', property: '__lookupGetter__' },
-          { message: 'Use `Object.getOwnPropertyDescriptor` instead.', property: '__lookupSetter__' },
+          {
+            message: 'Use `Object.getPrototypeOf` or `Object.setPrototypeOf` instead.',
+            property: '__proto__',
+          },
+          {
+            message: 'Use `Object.defineProperty` instead.',
+            property: '__defineGetter__',
+          },
+          {
+            message: 'Use `Object.defineProperty` instead.',
+            property: '__defineSetter__',
+          },
+          {
+            message: 'Use `Object.getOwnPropertyDescriptor` instead.',
+            property: '__lookupGetter__',
+          },
+          {
+            message: 'Use `Object.getOwnPropertyDescriptor` instead.',
+            property: '__lookupSetter__',
+          },
         ],
         'no-restricted-syntax': [
           'error',
@@ -186,11 +208,14 @@ export function javascript(): FlatConfig {
             varsIgnorePattern: '^_',
           },
         ],
-        'use-isnan': ['error', { enforceForIndexOf: true, enforceForSwitchCase: true }],
+        'use-isnan': ['error', {
+          enforceForIndexOf: true,
+          enforceForSwitchCase: true,
+        }],
         'valid-typeof': ['error', { requireStringLiterals: true }],
         'vars-on-top': 'error',
         'yoda': ['error', 'never'],
-      }
-    }
-  ]
+      },
+    },
+  ];
 }

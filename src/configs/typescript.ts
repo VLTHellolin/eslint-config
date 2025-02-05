@@ -1,5 +1,5 @@
 import process from 'node:process';
-import type { FlatConfig, ResolvedOptions, Rules } from "../types";
+import type { FlatConfig, ResolvedOptions, Rules } from '../types';
 import { default as pluginTypescript } from '@typescript-eslint/eslint-plugin';
 import { default as parserTypescript } from '@typescript-eslint/parser';
 
@@ -7,7 +7,7 @@ export function typescript(options: ResolvedOptions): FlatConfig {
   if (!options.typescript) {
     return [];
   }
-  
+
   const standardRules: Rules = {
     'ts/await-thenable': 'error',
     'no-array-constructor': 'off',
@@ -87,13 +87,11 @@ export function typescript(options: ResolvedOptions): FlatConfig {
     'ts/no-unsafe-member-access': 'error',
     'ts/no-unsafe-return': 'error',
   } : {};
-  
+
   return [
     {
       name: 'hellolin/typescript/setup',
-      plugins: {
-        ts: pluginTypescript as any,
-      },
+      plugins: { ts: pluginTypescript as any },
     },
     {
       name: 'hellolin/typescript/parser',
@@ -109,7 +107,7 @@ export function typescript(options: ResolvedOptions): FlatConfig {
     {
       name: 'hellolin/typescript/rules',
       files: [
-        '**/*.?([cm])ts?(x)'
+        '**/*.?([cm])ts?(x)',
       ],
       rules: {
         ...standardRules,

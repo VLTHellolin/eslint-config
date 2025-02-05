@@ -1,13 +1,11 @@
 import { default as pluginStylistic } from '@stylistic/eslint-plugin';
 import type { FlatConfig } from '../types';
 
-export function stylistic (): FlatConfig {
+export function stylistic(): FlatConfig {
   return [
     {
       name: 'hellolin/stylistic/rules',
-      plugins: {
-        style: pluginStylistic,
-      },
+      plugins: { style: pluginStylistic },
       rules: {
         'style/arrow-parens': ['error', 'as-needed'],
         'style/arrow-spacing': 'error',
@@ -47,6 +45,7 @@ export function stylistic (): FlatConfig {
         'style/no-trailing-spaces': 'error',
         'style/no-whitespace-before-property': 'error',
         'style/object-curly-spacing': ['error', 'always'],
+        'style/object-curly-newline': ['error', { multiline: true }],
         'style/object-property-newline': 'error',
         'style/operator-linebreak': ['error', 'before'],
         'style/quote-props': ['error', 'consistent-as-needed'],
@@ -56,14 +55,16 @@ export function stylistic (): FlatConfig {
         'style/semi-spacing': 'error',
         'style/semi-style': 'error',
         'style/space-before-blocks': ['error', 'always'],
-        'style/space-before-function-paren': 'error',
+        'style/space-before-function-paren': ['error', { named: 'never' }],
         'style/space-unary-ops': 'error',
         'style/switch-colon-spacing': 'error',
         'style/type-annotation-spacing': 'error',
         'style/type-generic-spacing': 'error',
         'style/type-named-tuple-spacing': 'error',
-        'style/yield-star-spacing': ['error', { before: true,
-          after: false }],
+        'style/yield-star-spacing': ['error', {
+          before: true,
+          after: false,
+        }],
       },
     },
   ];
