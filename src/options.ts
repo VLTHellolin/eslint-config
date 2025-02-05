@@ -5,6 +5,7 @@ export function resolveOptions(options?: Options): ResolvedOptions {
     ignores: [],
     gitignore: true,
     typescript: true,
+    stylistic: true,
     ...options,
   };
 }

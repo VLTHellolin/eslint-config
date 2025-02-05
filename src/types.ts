@@ -15,6 +15,7 @@ export interface Options {
     enableAnyRelatedRules?: boolean;
     tsconfigRootDir?: string;
   };
+  stylistic?: boolean;
 }
 
 export type ResolvedOptions = Required<Options>;
