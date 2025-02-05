@@ -39,6 +39,7 @@
     "@typescript-eslint/parser": "^8.22.0",
     "@unocss/eslint-plugin": "^65.4.3",
     "eslint-config-flat-gitignore": "^2.0.0",
+    "eslint-plugin-n": "^17.15.1",
     "eslint-plugin-react-compiler": "19.0.0-beta-27714ef-20250124",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.18",

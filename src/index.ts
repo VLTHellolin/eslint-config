@@ -1,5 +1,6 @@
 import { ignores } from './configs/ignores';
 import { javascript } from './configs/javascript';
+import { node } from './configs/node';
 import { stylistic } from './configs/stylistic';
 import { typescript } from './configs/typescript';
 import { resolveOptions } from './options';
@@ -17,6 +18,7 @@ export function defineConfig(userOptions?: Options, ...eslintOptions: FlatConfig
   if (options.stylistic) {
     presets.push(stylistic);
   }
+  presets.push(node);
 
   const presetConfig = presets.reduce<FlatConfig>(
     (res, fn) => res.concat(fn(options)),
