@@ -1,5 +1,6 @@
 import { ignores } from './configs/ignores';
 import { javascript } from './configs/javascript';
+import { jsx } from './configs/jsx';
 import { node } from './configs/node';
 import { stylistic } from './configs/stylistic';
 import { typescript } from './configs/typescript';
@@ -11,6 +12,7 @@ export function defineConfig(userOptions?: Options, ...eslintOptions: FlatConfig
   const presets: ((opt: ResolvedOptions) => FlatConfig)[] = [];
 
   presets.push(ignores);
+  presets.push(jsx);
   presets.push(javascript);
   if (options.typescript) {
     presets.push(typescript);
