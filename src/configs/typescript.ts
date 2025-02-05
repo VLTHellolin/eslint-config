@@ -95,6 +95,9 @@ export function typescript(options: ResolvedOptions): FlatConfig {
     },
     {
       name: 'hellolin/typescript/parser',
+      files: [
+        '**/*.?([cm])ts?(x)',
+      ],
       languageOptions: {
         parser: parserTypescript,
         parserOptions: {

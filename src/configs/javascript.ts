@@ -26,9 +26,6 @@ export function javascript(): FlatConfig {
     },
     {
       name: 'hellolin/javascript/rules',
-      files: [
-        '**/*.?([cm])[jt]s?(x)',
-      ],
       plugins: { 'unused-imports': pluginUnusedImports },
       rules: {
         'array-callback-return': 'error',
