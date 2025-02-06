@@ -1,5 +1,5 @@
-import pluginStylistic from '@stylistic/eslint-plugin';
 import type { FlatConfig } from '../types';
+import pluginStylistic from '@stylistic/eslint-plugin';
 
 export function stylistic(): FlatConfig {
   return [

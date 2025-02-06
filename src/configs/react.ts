@@ -1,5 +1,4 @@
 import type { FlatConfig, ResolvedOptions, Rules } from '../types';
-import pluginReact from 'eslint-plugin-react-x';
 import pluginReactDom from 'eslint-plugin-react-dom';
 // @ts-expect-error
 import pluginReactHooks from 'eslint-plugin-react-hooks';
@@ -7,6 +6,7 @@ import pluginReactHooksExtra from 'eslint-plugin-react-hooks-extra';
 import pluginReactNamingConvention from 'eslint-plugin-react-naming-convention';
 import pluginReactRefresh from 'eslint-plugin-react-refresh';
 import pluginReactWebApi from 'eslint-plugin-react-web-api';
+import pluginReact from 'eslint-plugin-react-x';
 import { extractOptionValue } from '../options';
 
 export function react(options: ResolvedOptions): FlatConfig {

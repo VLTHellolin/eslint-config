@@ -1,6 +1,6 @@
-import globals from 'globals';
 import type { FlatConfig } from '../types';
 import pluginUnusedImports from 'eslint-plugin-unused-imports';
+import globals from 'globals';
 
 export function javascript(): FlatConfig {
   return [

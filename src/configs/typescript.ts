@@ -1,5 +1,5 @@
-import process from 'node:process';
 import type { FlatConfig, ResolvedOptions, Rules } from '../types';
+import process from 'node:process';
 import pluginTypescript from '@typescript-eslint/eslint-plugin';
 import parserTypescript from '@typescript-eslint/parser';
 import { extractOptionValue } from '../options';
