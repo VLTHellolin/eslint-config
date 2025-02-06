@@ -9,8 +9,11 @@
     "dist"
   ],
   "scripts": {
+    "dev": "npx @eslint/config-inspector --config eslint-all.config.ts",
     "build": "tsup --clean --dts",
-    "lint": "eslint --fix ."
+    "build:inspector": "pnpm build && npx @eslint/config-inspector build --config eslint-all.config.ts",
+    "lint": "eslint --fix .",
+    "release": "bumpp && pnpm publish"
   },
   "keywords": [
     "eslint",
@@ -24,6 +27,7 @@
     "eslint": "^9.19.0"
   },
   "devDependencies": {
+    "@eslint/config-inspector": "^1.0.0",
     "@types/node": "^22.13.1",
     "bumpp": "^10.0.2",
     "eslint": "^9.19.0",
