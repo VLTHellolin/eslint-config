@@ -8,6 +8,7 @@ export function resolveOptions(options?: Options): ResolvedOptions {
     stylistic: true,
     react: false,
     next: false,
+    unocss: false,
     ...options,
   };
 }

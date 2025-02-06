@@ -9,6 +9,7 @@ import {
   react,
   stylistic,
   typescript,
+  unocss,
 } from './configs';
 import { resolveOptions } from './options';
 
@@ -32,6 +33,9 @@ export function defineConfig(userOptions?: Options, ...eslintOptions: FlatConfig
   }
   if (options.react && options.next) {
     presets.push(next);
+  }
+  if (options.unocss) {
+    presets.push(unocss);
   }
 
   const presetConfig = presets.reduce<FlatConfig>(

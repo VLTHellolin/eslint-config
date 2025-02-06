@@ -18,6 +18,10 @@ export interface Options {
   stylistic?: boolean;
   react?: boolean | { fastRefresh?: boolean };
   next?: boolean;
+  unocss?: boolean | {
+    strict?: boolean;
+    attributify?: boolean;
+  };
 }
 
 export type ResolvedOptions = Required<Options>;
