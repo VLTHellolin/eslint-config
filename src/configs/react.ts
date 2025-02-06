@@ -1,7 +1,5 @@
 import type { FlatConfig, ResolvedOptions, Rules } from '../types';
 import pluginReact from 'eslint-plugin-react-x';
-// @ts-expect-error
-import pluginReactCompiler from 'eslint-plugin-react-compiler';
 import pluginReactDom from 'eslint-plugin-react-dom';
 // @ts-expect-error
 import pluginReactHooks from 'eslint-plugin-react-hooks';
@@ -13,7 +11,6 @@ import { extractOptionValue } from '../options';
 
 export function react(options: ResolvedOptions): FlatConfig {
   const enableFastRefresh = extractOptionValue(options.react, 'fastRefresh', true);
-  const enableReactCompiler = extractOptionValue(options.react, 'reactCompiler', false);
 
   const plugins = {
     'react': pluginReact,
@@ -25,9 +22,6 @@ export function react(options: ResolvedOptions): FlatConfig {
   } as any;
   if (enableFastRefresh) {
     plugins['react-refresh'] = pluginReactRefresh;
-  }
-  if (enableReactCompiler) {
-    plugins['react-compiler'] = pluginReactCompiler;
   }
 
   const standardRules: Rules = {
@@ -99,10 +93,26 @@ export function react(options: ResolvedOptions): FlatConfig {
     'react-naming-convention/use-state': 'warn',
   };
   const fastRefreshRules: Rules = enableFastRefresh ? {
-    'react-refresh/only-export-components': 'error',
-  } : {};
-  const reactCompilerRules: Rules = enableReactCompiler ? {
-    'react-compiler/react-compiler': 'error',
+    'react-refresh/only-export-components': [
+      'warn',
+      {
+        allowExportNames: options.next ? [
+          'dynamic',
+          'dynamicParams',
+          'revalidate',
+          'fetchCache',
+          'runtime',
+          'preferredRegion',
+          'maxDuration',
+          'config',
+          'generateStaticParams',
+          'metadata',
+          'generateMetadata',
+          'viewport',
+          'generateViewport',
+        ] : [],
+      },
+    ],
   } : {};
 
   return [
@@ -116,18 +126,13 @@ export function react(options: ResolvedOptions): FlatConfig {
         '**/*.?([cm])[jt]s?(x)',
       ],
       languageOptions: {
-        parserOptions: {
-          ecmaFeatures: {
-            jsx: true,
-          },
-        },
+        parserOptions: { ecmaFeatures: { jsx: true } },
         sourceType: 'module',
       },
       rules: {
         ...standardRules,
         ...fastRefreshRules,
-        ...reactCompilerRules,
-      }
-    }
+      },
+    },
   ];
 }

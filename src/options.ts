@@ -7,6 +7,7 @@ export function resolveOptions(options?: Options): ResolvedOptions {
     typescript: true,
     stylistic: true,
     react: false,
+    next: false,
     ...options,
   };
 }

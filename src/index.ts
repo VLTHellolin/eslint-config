@@ -5,7 +5,8 @@ import {
   typescript,
   stylistic,
   node,
-  react
+  react,
+  next,
 } from './configs';
 import { resolveOptions } from './options';
 import type { FlatConfig, Options, ResolvedOptions } from './types';
@@ -26,6 +27,9 @@ export function defineConfig(userOptions?: Options, ...eslintOptions: FlatConfig
   presets.push(node);
   if (options.react) {
     presets.push(react);
+  }
+  if (options.react && options.next) {
+    presets.push(next);
   }
 
   const presetConfig = presets.reduce<FlatConfig>(

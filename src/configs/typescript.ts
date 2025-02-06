@@ -7,7 +7,7 @@ import { extractOptionValue } from '../options';
 export function typescript(options: ResolvedOptions): FlatConfig {
   const enableStrict = extractOptionValue(options.typescript, 'strict', true);
   const enableStylistic = extractOptionValue(options.typescript, 'stylistic', true);
-  const enableAnyRelatedRules = extractOptionValue(options.typescript, 'enableAnyRelatedRules', true);
+  const enableAnyRelatedRules = extractOptionValue(options.typescript, 'enableAnyRelatedRules', false);
 
   const standardRules: Rules = {
     'ts/await-thenable': 'error',
