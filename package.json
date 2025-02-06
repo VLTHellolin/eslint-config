@@ -31,7 +31,6 @@
     "typescript": "^5.7.3"
   },
   "dependencies": {
-    "@eslint-react/eslint-plugin": "^1.25.0",
     "@eslint/markdown": "^6.2.2",
     "@next/eslint-plugin-next": "^15.1.6",
     "@stylistic/eslint-plugin": "^3.0.1",
@@ -41,8 +40,13 @@
     "eslint-config-flat-gitignore": "^2.0.0",
     "eslint-plugin-n": "^17.15.1",
     "eslint-plugin-react-compiler": "19.0.0-beta-27714ef-20250124",
+    "eslint-plugin-react-dom": "^1.26.1",
     "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-hooks-extra": "^1.26.1",
+    "eslint-plugin-react-naming-convention": "^1.26.1",
     "eslint-plugin-react-refresh": "^0.4.18",
+    "eslint-plugin-react-web-api": "^1.26.1",
+    "eslint-plugin-react-x": "^1.26.1",
     "eslint-plugin-unused-imports": "^4.1.4",
     "eslint-plugin-yml": "^1.16.0",
     "globals": "^15.14.0",

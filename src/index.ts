@@ -2,6 +2,7 @@ import { ignores } from './configs/ignores';
 import { javascript } from './configs/javascript';
 import { jsx } from './configs/jsx';
 import { node } from './configs/node';
+import { react } from './configs/react';
 import { stylistic } from './configs/stylistic';
 import { typescript } from './configs/typescript';
 import { resolveOptions } from './options';
@@ -16,6 +17,9 @@ export function defineConfig(userOptions?: Options, ...eslintOptions: FlatConfig
   presets.push(javascript);
   if (options.typescript) {
     presets.push(typescript);
+  }
+  if (options.react) {
+    presets.push(react);
   }
   if (options.stylistic) {
     presets.push(stylistic);

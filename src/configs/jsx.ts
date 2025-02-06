@@ -5,8 +5,7 @@ export function jsx(): FlatConfig {
     {
       name: 'hellolin/jsx/setup',
       files: [
-        // tsx files is included in the typescript config
-        '**/*.?([cm])js?(x)',
+        '**/*.?([cm])[jt]sx',
       ],
       languageOptions: { parserOptions: { ecmaFeatures: { jsx: true } } },
     },

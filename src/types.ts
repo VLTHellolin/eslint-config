@@ -16,6 +16,10 @@ export interface Options {
     tsconfigRootDir?: string;
   };
   stylistic?: boolean;
+  react?: boolean | {
+    fastRefresh?: boolean;
+    reactCompiler?: boolean;
+  };
 }
 
 export type ResolvedOptions = Required<Options>;
