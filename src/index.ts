@@ -1,10 +1,12 @@
-import { ignores } from './configs/ignores';
-import { javascript } from './configs/javascript';
-import { jsx } from './configs/jsx';
-import { node } from './configs/node';
-import { react } from './configs/react';
-import { stylistic } from './configs/stylistic';
-import { typescript } from './configs/typescript';
+import {
+  ignores,
+  jsx,
+  javascript,
+  typescript,
+  stylistic,
+  node,
+  react
+} from './configs';
 import { resolveOptions } from './options';
 import type { FlatConfig, Options, ResolvedOptions } from './types';
 
@@ -18,13 +20,13 @@ export function defineConfig(userOptions?: Options, ...eslintOptions: FlatConfig
   if (options.typescript) {
     presets.push(typescript);
   }
-  if (options.react) {
-    presets.push(react);
-  }
   if (options.stylistic) {
     presets.push(stylistic);
   }
   presets.push(node);
+  if (options.react) {
+    presets.push(react);
+  }
 
   const presetConfig = presets.reduce<FlatConfig>(
     (res, fn) => res.concat(fn(options)),

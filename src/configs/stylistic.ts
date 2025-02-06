@@ -1,4 +1,4 @@
-import { default as pluginStylistic } from '@stylistic/eslint-plugin';
+import pluginStylistic from '@stylistic/eslint-plugin';
 import type { FlatConfig } from '../types';
 
 export function stylistic(): FlatConfig {

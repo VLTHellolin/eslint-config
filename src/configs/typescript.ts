@@ -1,12 +1,13 @@
 import process from 'node:process';
 import type { FlatConfig, ResolvedOptions, Rules } from '../types';
-import { default as pluginTypescript } from '@typescript-eslint/eslint-plugin';
-import { default as parserTypescript } from '@typescript-eslint/parser';
+import pluginTypescript from '@typescript-eslint/eslint-plugin';
+import parserTypescript from '@typescript-eslint/parser';
+import { extractOptionValue } from '../options';
 
 export function typescript(options: ResolvedOptions): FlatConfig {
-  if (!options.typescript) {
-    return [];
-  }
+  const enableStrict = extractOptionValue(options.typescript, 'strict', true);
+  const enableStylistic = extractOptionValue(options.typescript, 'stylistic', true);
+  const enableAnyRelatedRules = extractOptionValue(options.typescript, 'enableAnyRelatedRules', true);
 
   const standardRules: Rules = {
     'ts/await-thenable': 'error',
@@ -50,7 +51,7 @@ export function typescript(options: ResolvedOptions): FlatConfig {
     'ts/return-await': ['error', 'in-try-catch'],
     'ts/unbound-method': 'error',
   };
-  const strictRules: Rules = (options.typescript === true || options.typescript.strict !== false) ? {
+  const strictRules: Rules = enableStrict ? {
     'ts/no-confusing-void-expression': 'error',
     'ts/no-deprecated': 'warn',
     'ts/no-dynamic-delete': 'error',
@@ -71,7 +72,7 @@ export function typescript(options: ResolvedOptions): FlatConfig {
     'ts/related-getter-setter-pairs': 'error',
     'ts/unified-signatures': 'error',
   } : {};
-  const stylisticRules: Rules = (options.typescript === true || options.typescript.stylistic !== false) ? {
+  const stylisticRules: Rules = enableStylistic ? {
     'ts/consistent-type-definitions': 'error',
     'ts/consistent-type-imports': ['error', {
       disallowTypeAnnotations: false,
@@ -79,7 +80,7 @@ export function typescript(options: ResolvedOptions): FlatConfig {
       prefer: 'type-imports',
     }],
   } : {};
-  const anyRelatedRules: Rules = (typeof options.typescript === 'object' && options.typescript.enableAnyRelatedRules) ? {
+  const anyRelatedRules: Rules = enableAnyRelatedRules ? {
     'ts/no-explicit-any': 'error',
     'ts/no-unsafe-argument': 'error',
     'ts/no-unsafe-assignment': 'error',
@@ -103,7 +104,7 @@ export function typescript(options: ResolvedOptions): FlatConfig {
         parserOptions: {
           sourceType: 'module',
           projectService: true,
-          tsconfigRootDir: (typeof options.typescript === 'object' && options.typescript.tsconfigRootDir) || process.cwd(),
+          tsconfigRootDir: extractOptionValue(options.typescript, 'tsconfigRootDir', '') || process.cwd(),
         },
       },
     },

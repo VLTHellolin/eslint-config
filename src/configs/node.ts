@@ -1,4 +1,4 @@
-import { default as pluginNode } from 'eslint-plugin-n';
+import pluginNode from 'eslint-plugin-n';
 import type { FlatConfig } from '../types';
 
 export function node(): FlatConfig {

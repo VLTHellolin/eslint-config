@@ -1,5 +1,5 @@
 import type { FlatConfig, ResolvedOptions } from '../types';
-import { default as gitignore } from 'eslint-config-flat-gitignore';
+import gitignore from 'eslint-config-flat-gitignore';
 
 export function ignores(options: ResolvedOptions): FlatConfig {
   const config: FlatConfig = [];
