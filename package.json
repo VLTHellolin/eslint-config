@@ -2,7 +2,7 @@
   "name": "@hellolin/eslint-config",
   "version": "0.1.0",
   "type": "module",
-  "description": "Hellolin's eslint config for React & Next.js developers.",
+  "description": "ESLint config for React & Next.js developers.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
