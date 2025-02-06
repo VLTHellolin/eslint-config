@@ -1,3 +1,4 @@
+export * from './format';
 export * from './ignores';
 export * from './javascript';
 export * from './jsx';

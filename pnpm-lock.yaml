@@ -29,6 +29,9 @@ importers:
       eslint-config-flat-gitignore:
         specifier: ^2.0.0
         version: 2.0.0(eslint@9.19.0(jiti@2.4.2))
+      eslint-parser-plain:
+        specifier: ^0.1.1
+        version: 0.1.1
       eslint-plugin-format:
         specifier: ^1.0.1
         version: 1.0.1(eslint@9.19.0(jiti@2.4.2))
@@ -59,9 +62,6 @@ importers:
       eslint-plugin-react-x:
         specifier: ^1.26.2
         version: 1.26.2(eslint@9.19.0(jiti@2.4.2))(ts-api-utils@2.0.1(typescript@5.7.3))(typescript@5.7.3)
-      eslint-plugin-unused-imports:
-        specifier: ^4.1.4
-        version: 4.1.4(@typescript-eslint/eslint-plugin@8.23.0(@typescript-eslint/parser@8.23.0(eslint@9.19.0(jiti@2.4.2))(typescript@5.7.3))(eslint@9.19.0(jiti@2.4.2))(typescript@5.7.3))(eslint@9.19.0(jiti@2.4.2))
       eslint-plugin-yml:
         specifier: ^1.16.0
         version: 1.16.0(eslint@9.19.0(jiti@2.4.2))
@@ -84,6 +84,9 @@ importers:
       eslint:
         specifier: ^9.19.0
         version: 9.19.0(jiti@2.4.2)
+      prettier:
+        specifier: ^3.4.2
+        version: 3.4.2
       tsup:
         specifier: ^8.3.6
         version: 8.3.6(jiti@2.4.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
@@ -1051,15 +1054,6 @@ packages:
       ts-api-utils:
         optional: true
       typescript:
-        optional: true
-
-  eslint-plugin-unused-imports@4.1.4:
-    resolution: {integrity: sha512-YptD6IzQjDardkl0POxnnRBhU1OEePMV0nd6siHaRBbd+lyh6NAhFEobiznKU7kTsSsDeSD62Pe7kAM1b7dAZQ==}
-    peerDependencies:
-      '@typescript-eslint/eslint-plugin': ^8.0.0-0 || ^7.0.0 || ^6.0.0 || ^5.0.0
-      eslint: ^9.0.0 || ^8.0.0
-    peerDependenciesMeta:
-      '@typescript-eslint/eslint-plugin':
         optional: true
 
   eslint-plugin-yml@1.16.0:
@@ -2842,12 +2836,6 @@ snapshots:
       typescript: 5.7.3
     transitivePeerDependencies:
       - supports-color
-
-  eslint-plugin-unused-imports@4.1.4(@typescript-eslint/eslint-plugin@8.23.0(@typescript-eslint/parser@8.23.0(eslint@9.19.0(jiti@2.4.2))(typescript@5.7.3))(eslint@9.19.0(jiti@2.4.2))(typescript@5.7.3))(eslint@9.19.0(jiti@2.4.2)):
-    dependencies:
-      eslint: 9.19.0(jiti@2.4.2)
-    optionalDependencies:
-      '@typescript-eslint/eslint-plugin': 8.23.0(@typescript-eslint/parser@8.23.0(eslint@9.19.0(jiti@2.4.2))(typescript@5.7.3))(eslint@9.19.0(jiti@2.4.2))(typescript@5.7.3)
 
   eslint-plugin-yml@1.16.0(eslint@9.19.0(jiti@2.4.2)):
     dependencies:

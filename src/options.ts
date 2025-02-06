@@ -6,6 +6,7 @@ export function resolveOptions(options?: Options): ResolvedOptions {
     gitignore: true,
     typescript: true,
     stylistic: true,
+    format: true,
     react: false,
     next: false,
     unocss: false,
@@ -13,7 +14,7 @@ export function resolveOptions(options?: Options): ResolvedOptions {
   };
 }
 
-export function extractOptionValue<T extends Record<string, any>>(option: boolean | T, key: keyof T, defaultValue: T[typeof key]) {
+export function extractOptionValue<T extends Record<string, any>, K extends keyof T>(option: boolean | T, key: K, defaultValue: T[K]) {
   if (typeof option === 'boolean') {
     return option ? defaultValue : false;
   } else {

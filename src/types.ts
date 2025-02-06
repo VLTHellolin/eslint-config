@@ -1,5 +1,6 @@
 import type { Linter } from 'eslint';
 import type { FlatGitignoreOptions } from 'eslint-config-flat-gitignore';
+import type { Options as PrettierOptions } from 'prettier';
 
 export type FlatConfigItem = Linter.Config;
 export type FlatConfig = FlatConfigItem[];
@@ -16,6 +17,13 @@ export interface Options {
     tsconfigRootDir?: string;
   };
   stylistic?: boolean;
+  format?: boolean | {
+    css?: boolean;
+    html?: boolean;
+    markdown?: boolean;
+    graphql?: boolean;
+    options?: PrettierOptions;
+  };
   react?: boolean | { fastRefresh?: boolean };
   next?: boolean;
   unocss?: boolean | {

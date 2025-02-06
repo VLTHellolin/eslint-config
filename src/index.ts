@@ -1,5 +1,6 @@
 import type { FlatConfig, Options, ResolvedOptions } from './types';
 import {
+  format,
   ignores,
   javascript,
   jsx,
@@ -26,6 +27,9 @@ export function defineConfig(userOptions?: Options, ...eslintOptions: FlatConfig
   if (options.stylistic) {
     presets.push(stylistic);
     presets.push(perfectionist);
+  }
+  if (options.format) {
+    presets.push(format);
   }
   presets.push(node);
   if (options.react) {

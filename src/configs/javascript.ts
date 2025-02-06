@@ -1,5 +1,4 @@
 import type { FlatConfig } from '../types';
-import pluginUnusedImports from 'eslint-plugin-unused-imports';
 import globals from 'globals';
 
 export function javascript(): FlatConfig {
@@ -26,7 +25,6 @@ export function javascript(): FlatConfig {
     },
     {
       name: 'hellolin/javascript/rules',
-      plugins: { 'unused-imports': pluginUnusedImports },
       rules: {
         'array-callback-return': 'error',
         'block-scoped-var': 'error',
@@ -194,17 +192,6 @@ export function javascript(): FlatConfig {
         'prefer-template': 'error',
         'symbol-description': 'error',
         'unicode-bom': ['error', 'never'],
-        'unused-imports/no-unused-imports': 'warn',
-        'unused-imports/no-unused-vars': [
-          'warn',
-          {
-            args: 'after-used',
-            argsIgnorePattern: '^_',
-            ignoreRestSiblings: true,
-            vars: 'all',
-            varsIgnorePattern: '^_',
-          },
-        ],
         'use-isnan': ['error', {
           enforceForIndexOf: true,
           enforceForSwitchCase: true,
