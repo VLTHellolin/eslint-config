@@ -8,6 +8,7 @@ import {
   node,
   perfectionist,
   react,
+  regexp,
   stylistic,
   typescript,
   unocss,
@@ -32,6 +33,7 @@ export function defineConfig(userOptions?: Options, ...eslintOptions: FlatConfig
     presets.push(format);
   }
   presets.push(node);
+  presets.push(regexp);
   if (options.react) {
     presets.push(react);
   }

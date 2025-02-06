@@ -6,6 +6,7 @@ export * from './next';
 export * from './node';
 export * from './perfectionist';
 export * from './react';
+export * from './regexp';
 export * from './stylistic';
 export * from './typescript';
 export * from './unocss';
