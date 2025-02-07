@@ -35,7 +35,10 @@ export function stylistic(): FlatConfig {
         'style/jsx-props-no-multi-spaces': 'error',
         'style/jsx-quotes': ['error', 'prefer-single'],
         'style/jsx-self-closing-comp': 'error',
-        'style/jsx-tag-spacing': ['error', { beforeClosing: 'always' }],
+        'style/jsx-tag-spacing': ['error', {
+          beforeClosing: 'never',
+          beforeSelfClosing: 'always',
+        }],
         'style/key-spacing': 'error',
         'style/keyword-spacing': 'error',
         'style/member-delimiter-style': 'error',
