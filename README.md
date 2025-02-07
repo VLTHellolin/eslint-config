@@ -1,5 +1,7 @@
 # @hellolin/eslint-config
 
+[![NPM Version](https://img.shields.io/npm/v/%40hellolin%2Feslint-config?style=flat-square)](https://npmjs.com/package/@hellolin/eslint-config)
+
 Opinionated personal ESLint config for React & Next.js developers.
 
 - Compose with your config easily with the help of [ESLint flat config](https://eslint.org/docs/latest/use/configure/configuration-files).

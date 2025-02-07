@@ -23,6 +23,7 @@
   ],
   "author": "hellolin <i@hellolin.top>",
   "license": "MIT",
+  "homepage": "https://github.com/VLTHellolin/eslint-config",
   "peerDependencies": {
     "eslint": "^9.19.0"
   },
