@@ -1,5 +1,6 @@
 import type { FlatConfig, Options, ResolvedOptions } from './types';
 import {
+  command,
   format,
   ignores,
   javascript,
@@ -34,6 +35,7 @@ export function defineConfig(userOptions?: Options, ...eslintOptions: FlatConfig
   }
   presets.push(node);
   presets.push(regexp);
+  presets.push(command);
   if (options.react) {
     presets.push(react);
   }
