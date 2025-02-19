@@ -39,7 +39,10 @@ export function stylistic(): FlatConfig {
         'style/jsx-closing-tag-location': ['error', 'tag-aligned'],
         'style/jsx-equals-spacing': ['error', 'never'],
         'style/jsx-indent-props': ['error', 2],
-        'style/jsx-pascal-case': ['warn', { allowNamespace: true }],
+        'style/jsx-pascal-case': ['warn', {
+          allowNamespace: true,
+          ignore: ['[A-Z]+'],
+        }],
         'style/jsx-props-no-multi-spaces': 'error',
         'style/jsx-quotes': ['error', 'prefer-single'],
         'style/jsx-self-closing-comp': 'error',
