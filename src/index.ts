@@ -59,3 +59,5 @@ export function defineConfig(userOptions?: Options, ...eslintOptions: FlatConfig
 }
 
 export default defineConfig;
+
+export * from './types';
