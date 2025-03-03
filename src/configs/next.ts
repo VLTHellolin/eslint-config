@@ -1,8 +1,8 @@
 import type { FlatConfig } from '../types';
-// @ts-expect-error
-import pluginNext from '@next/eslint-plugin-next';
+import importSync from 'import-sync';
 
 export function next(): FlatConfig {
+  const pluginNext = importSync('@next/eslint-plugin-next');
   return [
     {
       name: 'hellolin/next/setup',
