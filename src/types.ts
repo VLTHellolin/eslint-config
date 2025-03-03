@@ -30,6 +30,9 @@ export interface Options {
     strict?: boolean;
     attributify?: boolean;
   };
+  node?: boolean | {
+    disallowExtraneousPackages?: boolean;
+  };
 }
 
 export type ResolvedOptions = Required<Options>;

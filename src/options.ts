@@ -10,6 +10,7 @@ export function resolveOptions(options?: Options): ResolvedOptions {
     react: false,
     next: false,
     unocss: false,
+    node: true,
     ...options,
   };
 }

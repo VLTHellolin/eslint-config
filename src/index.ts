@@ -32,7 +32,7 @@ export function defineConfig(userOptions?: Options, ...eslintOptions: FlatConfig
     resolvePreset(options.stylistic, stylistic),
     resolvePreset(options.stylistic, perfectionist),
     resolvePreset(options.format, format),
-    node,
+    resolvePreset(options.node, node),
     regexp,
     command,
     resolvePreset(options.react, react),
