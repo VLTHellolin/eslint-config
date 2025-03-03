@@ -1,6 +1,6 @@
 {
   "name": "@hellolin/eslint-config",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "type": "module",
   "description": "ESLint config for React & Next.js developers.",
   "main": "./dist/index.js",
