@@ -16,35 +16,29 @@ import {
 } from './configs';
 import { resolveOptions } from './options';
 
+type PresetFn = (opt: ResolvedOptions) => FlatConfig;
+
+function resolvePreset(option: boolean | object, preset: PresetFn) {
+  return option ? preset : () => [];
+}
+
 export function defineConfig(userOptions?: Options, ...eslintOptions: FlatConfig) {
   const options = resolveOptions(userOptions);
-  const presets: ((opt: ResolvedOptions) => FlatConfig)[] = [];
-
-  presets.push(ignores);
-  presets.push(jsx);
-  presets.push(javascript);
-  if (options.typescript) {
-    presets.push(typescript);
-  }
-  if (options.stylistic) {
-    presets.push(stylistic);
-    presets.push(perfectionist);
-  }
-  if (options.format) {
-    presets.push(format);
-  }
-  presets.push(node);
-  presets.push(regexp);
-  presets.push(command);
-  if (options.react) {
-    presets.push(react);
-  }
-  if (options.react && options.next) {
-    presets.push(next);
-  }
-  if (options.unocss) {
-    presets.push(unocss);
-  }
+  const presets: PresetFn[] = [
+    ignores,
+    jsx,
+    javascript,
+    resolvePreset(options.typescript, typescript),
+    resolvePreset(options.stylistic, stylistic),
+    resolvePreset(options.stylistic, perfectionist),
+    resolvePreset(options.format, format),
+    node,
+    regexp,
+    command,
+    resolvePreset(options.react, react),
+    resolvePreset(options.react && options.next, next),
+    resolvePreset(options.unocss, unocss),
+  ];
 
   const presetConfig = presets.reduce<FlatConfig>(
     (res, fn) => res.concat(fn(options)),
