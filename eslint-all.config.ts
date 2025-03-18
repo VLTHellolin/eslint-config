@@ -4,4 +4,5 @@ export default defineConfig({
   react: true,
   next: true,
   unocss: true,
+  storybook: true,
 });

@@ -10,6 +10,7 @@ import {
   perfectionist,
   react,
   regexp,
+  storybook,
   stylistic,
   typescript,
   unocss,
@@ -38,6 +39,7 @@ export function defineConfig(userOptions?: Options, ...eslintOptions: FlatConfig
     resolvePreset(options.react, react),
     resolvePreset(options.react && options.next, next),
     resolvePreset(options.unocss, unocss),
+    resolvePreset(options.storybook, storybook),
   ];
 
   const presetConfig = presets.reduce<FlatConfig>(

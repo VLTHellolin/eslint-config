@@ -33,6 +33,9 @@ export interface Options {
   node?: boolean | {
     disallowExtraneousPackages?: boolean;
   };
+  storybook?: boolean | {
+    csf?: boolean;
+  };
 }
 
 export type ResolvedOptions = Required<Options>;

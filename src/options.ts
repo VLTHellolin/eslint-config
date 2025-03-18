@@ -11,6 +11,7 @@ export function resolveOptions(options?: Options): ResolvedOptions {
     next: false,
     unocss: false,
     node: true,
+    storybook: false,
     ...options,
   };
 }
