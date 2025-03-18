@@ -1,6 +1,5 @@
 import type { FlatConfig, ResolvedOptions, Rules } from '../types';
 import pluginReactDom from 'eslint-plugin-react-dom';
-// @ts-expect-error
 import pluginReactHooks from 'eslint-plugin-react-hooks';
 import pluginReactHooksExtra from 'eslint-plugin-react-hooks-extra';
 import pluginReactNamingConvention from 'eslint-plugin-react-naming-convention';
