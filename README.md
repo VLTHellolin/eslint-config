@@ -43,7 +43,9 @@ Optionally add it to your `package.json`:
 
 ## Customization
 
-Pass your options like that:
+You can pass your options to `defineConfig`.
+
+For advanced usage, view [types.ts](https://github.com/VLTHellolin/eslint-config/blob/main/src/types.ts).
 
 ```js
 import defineConfig from '@hellolin/eslint-config';
@@ -64,7 +66,21 @@ export default defineConfig({
     // Attributify mode (enabled by default)
     attributify: true,
   },
+  node: {
+    // Disallow importing extraneous packages that isn't listed in package.json
+    // This option is disabled by default because it cannot work properly in monorepo projects
+    disallowExtraneousPackages: true,
+  },
 });
+```
+
+Notice that if you want to enable Next.js and UnoCSS features, you need to install their plugins:
+
+```shell
+# For Next.js
+pnpm install -D @next/eslint-plugin-next
+# For UnoCSS
+pnpm install -D @unocss/eslint-plugin
 ```
 
 You can also pass ESLint flat config items after the first parameter of `defineConfig`:
@@ -86,8 +102,6 @@ export default defineConfig(
   },
 );
 ```
-
-For advanced config, view [types.ts](https://github.com/VLTHellolin/eslint-config/blob/main/src/types.ts).
 
 ## Editor support
 
