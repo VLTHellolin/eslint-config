@@ -66,6 +66,12 @@ export default defineConfig({
     // Attributify mode (enabled by default)
     attributify: true,
   },
+  // Enable Storybook support (>=0.5.0)
+  storybook: true,
+  // JSON/JSONC/JSON5 mode
+  json: {
+    type: 'json5',
+  },
   node: {
     // Disallow importing extraneous packages that isn't listed in package.json
     // This option is disabled by default because it cannot work properly in monorepo projects
@@ -137,6 +143,7 @@ To integrate with VSCode, install [ESLint extension](https://marketplace.visuals
     "markdown",
     "json",
     "jsonc",
+    "yaml",
     "gql",
     "graphql",
     "css",
