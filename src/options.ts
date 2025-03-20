@@ -7,6 +7,8 @@ export function resolveOptions(options?: Options): ResolvedOptions {
     typescript: true,
     stylistic: true,
     format: true,
+    json: true,
+    yaml: true,
     react: false,
     next: false,
     unocss: false,

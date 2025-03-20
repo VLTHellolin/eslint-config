@@ -7,6 +7,8 @@ export type FlatConfig = FlatConfigItem[];
 
 export type Rules = Partial<Linter.RulesRecord>;
 
+export type JsonType = 'json' | 'jsonc' | 'json5';
+
 export interface Options {
   ignores?: string[];
   gitignore?: boolean | Omit<FlatGitignoreOptions, 'name'>;
@@ -24,6 +26,10 @@ export interface Options {
     graphql?: boolean;
     options?: PrettierOptions;
   };
+  json?: boolean | {
+    type: JsonType;
+  };
+  yaml?: boolean;
   react?: boolean | { fastRefresh?: boolean };
   next?: boolean;
   unocss?: boolean | {

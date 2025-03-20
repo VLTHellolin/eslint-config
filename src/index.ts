@@ -4,6 +4,7 @@ import {
   format,
   ignores,
   javascript,
+  json,
   jsx,
   next,
   node,
@@ -14,6 +15,7 @@ import {
   stylistic,
   typescript,
   unocss,
+  yaml,
 } from './configs';
 import { resolveOptions } from './options';
 
@@ -34,6 +36,8 @@ export function defineConfig(userOptions?: Options, ...eslintOptions: FlatConfig
     resolvePreset(options.stylistic, perfectionist),
     resolvePreset(options.format, format),
     resolvePreset(options.node, node),
+    resolvePreset(options.json, json),
+    resolvePreset(options.yaml, yaml),
     regexp,
     command,
     resolvePreset(options.react, react),
