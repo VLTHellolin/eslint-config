@@ -9,6 +9,7 @@ export function markdown(options: ResolvedOptions): FlatConfig {
     {
       name: 'hellolin/markdown/rules',
       plugins: { markdown: pluginMarkdown as any },
+      processor: 'markdown/markdown',
       language: `markdown/${markdownType}`,
       languageOptions: {
         parserOptions: {
