@@ -4,6 +4,7 @@ export * from './ignores';
 export * from './javascript';
 export * from './json';
 export * from './jsx';
+export * from './markdown';
 export * from './next';
 export * from './node';
 export * from './perfectionist';

@@ -30,6 +30,9 @@ export interface Options {
     type: JsonType;
   };
   yaml?: boolean;
+  markdown?: boolean | {
+    type?: 'commonmark' | 'gfm';
+  };
   react?: boolean | { fastRefresh?: boolean };
   next?: boolean;
   unocss?: boolean | {

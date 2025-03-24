@@ -9,6 +9,7 @@ export function resolveOptions(options?: Options): ResolvedOptions {
     format: true,
     json: true,
     yaml: true,
+    markdown: true,
     react: false,
     next: false,
     unocss: false,
