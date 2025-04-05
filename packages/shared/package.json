@@ -1,0 +1,15 @@
+{
+  "name": "@hellolin-eslint/shared",
+  "version": "0.4.0",
+  "type": "module",
+  "description": "Shared internals for @hellolin/eslint-config",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup"
+  },
+  "author": "hellolin <i@hellolin.top>",
+  "license": "MIT",
+  "homepage": "https://github.com/VLTHellolin/eslint-config"
+}
