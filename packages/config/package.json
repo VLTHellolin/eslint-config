@@ -16,6 +16,8 @@
   "license": "MIT",
   "homepage": "https://github.com/VLTHellolin/eslint-config",
   "dependencies": {
+    "@antfu/install-pkg": "^1.0.0",
+    "@clack/prompts": "^0.10.0",
     "@hellolin-eslint/shared": "workspace:*",
     "@stylistic/eslint-plugin": "^4.2.0",
     "@typescript-eslint/eslint-plugin": "^8.29.0",
@@ -24,6 +26,7 @@
     "eslint-config-flat-gitignore": "^2.1.0",
     "eslint-plugin-perfectionist": "^4.11.0",
     "eslint-plugin-regexp": "^2.7.0",
-    "globals": "^16.0.0"
+    "globals": "^16.0.0",
+    "local-pkg": "^1.1.1"
   }
 }

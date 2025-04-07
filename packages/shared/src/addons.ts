@@ -1,8 +1,10 @@
 import type { FlatConfigItem } from './options';
 
+type MaybePromise<T> = T | Promise<T>;
+
 export interface Addon<AddonOptions extends object | undefined = undefined> {
   name: string;
-  entry: (opt?: AddonOptions) => FlatConfigItem[];
+  entry: (opt?: AddonOptions) => MaybePromise<FlatConfigItem[]>;
   /**
    * Additional dependencies required for this addon.
    *
