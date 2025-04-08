@@ -1,13 +1,8 @@
 {
-  "name": "@hellolin/eslint-config",
+  "name": "@hellolin-eslint/monorepo",
+  "private": true,
   "version": "0.4.0",
   "type": "module",
-  "description": "ESLint config for React & Next.js developers.",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
   "packageManager": "pnpm@10.7.1",
   "scripts": {
     "dev": "pnpx @eslint/config-inspector --config eslint-all.config.ts",
@@ -16,15 +11,6 @@
     "lint": "eslint --fix .",
     "release": "bumpp && pnpm publish"
   },
-  "keywords": [
-    "eslint",
-    "eslint-config",
-    "react",
-    "nextjs"
-  ],
-  "author": "hellolin <i@hellolin.top>",
-  "license": "MIT",
-  "homepage": "https://github.com/VLTHellolin/eslint-config",
   "peerDependencies": {
     "@next/eslint-plugin-next": "*",
     "@unocss/eslint-plugin": "*",
@@ -41,7 +27,8 @@
     "eslint-plugin-storybook": "^0.11.6",
     "prettier": "^3.5.3",
     "tsup": "^8.4.0",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "nx": "20.7.1"
   },
   "dependencies": {
     "@eslint/markdown": "^6.3.0",

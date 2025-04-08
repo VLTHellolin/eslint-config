@@ -3,3 +3,5 @@ dist
 .eslint-config-inspector
 .npm
 .temp
+.nx/cache
+.nx/workspace-data
