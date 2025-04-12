@@ -184,6 +184,15 @@ importers:
         specifier: ^1.1.1
         version: 1.1.1
 
+  packages/unocss:
+    dependencies:
+      '@hellolin-eslint/shared':
+        specifier: workspace:*
+        version: link:../shared
+      '@unocss/eslint-plugin':
+        specifier: ^66.0.0
+        version: 66.0.0(eslint@9.23.0(jiti@2.4.2))(typescript@5.8.2)
+
 packages:
 
   '@antfu/install-pkg@1.0.0':
