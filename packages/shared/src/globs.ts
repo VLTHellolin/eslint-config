@@ -6,6 +6,7 @@ export const GlobJson = '**/*.json';
 export const GlobJsonc = '**/*.jsonc';
 export const GlobJson5 = '**/*.json5';
 export const GlobMarkdown = '**/*.md';
+export const GlobStories = `**/*.stories.${GlobSourceExt}`;
 export const GlobTests = [
   `**/*.test.${GlobSourceExt}`,
   `**/*.spec.${GlobSourceExt}`,

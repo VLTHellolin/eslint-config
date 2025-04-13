@@ -1,0 +1,21 @@
+{
+  "name": "@hellolin-eslint/storybook-config",
+  "version": "0.4.0",
+  "type": "module",
+  "description": "Storybook config for @hellolin/eslint-config",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup"
+  },
+  "author": "hellolin <i@hellolin.top>",
+  "license": "MIT",
+  "homepage": "https://github.com/VLTHellolin/eslint-config",
+  "dependencies": {
+    "@hellolin-eslint/shared": "workspace:*",
+    "eslint-plugin-storybook": "^0.11.6"
+  }
+}
