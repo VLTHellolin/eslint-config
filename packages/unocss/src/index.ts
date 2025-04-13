@@ -1,7 +1,7 @@
 import { type FlatConfigItem, memorize } from '@hellolin-eslint/shared';
 import pluginUnoCSS from '@unocss/eslint-plugin';
 
-export const node = (): FlatConfigItem[] => {
+export const unocss = (): FlatConfigItem[] => {
   return [
     {
       name: 'hellolin/unocss',
