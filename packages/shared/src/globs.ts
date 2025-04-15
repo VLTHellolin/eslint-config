@@ -1,5 +1,7 @@
 export const GlobJS = '**/*.?([cm])js?(x)';
+export const GlobJSX = '**/*.?([cm])jsx';
 export const GlobTS = '**/*.?([cm])ts?(x)';
+export const GlobTSX = '**/*.?([cm])tsx';
 const GlobSourceExt = '?([cm])[jt]s?(x)';
 export const GlobSource = `**/*.${GlobSourceExt}`;
 export const GlobJson = '**/*.json';
