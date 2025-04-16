@@ -1,20 +1,20 @@
 {
   "name": "@hellolin/eslint-config",
-  "version": "0.4.0",
   "type": "module",
+  "version": "0.4.0",
   "description": "Hellolin's ESLint config",
+  "author": "hellolin <i@hellolin.top>",
+  "license": "MIT",
+  "homepage": "https://github.com/VLTHellolin/eslint-config",
+  "keywords": [
+    "eslint",
+    "eslint-config"
+  ],
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "keywords": [
-    "eslint",
-    "eslint-config"
-  ],
-  "author": "hellolin <i@hellolin.top>",
-  "license": "MIT",
-  "homepage": "https://github.com/VLTHellolin/eslint-config",
   "scripts": {
     "build": "tsup"
   },

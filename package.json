@@ -1,10 +1,11 @@
 {
   "name": "@hellolin-eslint/monorepo",
-  "private": true,
-  "version": "0.4.0",
   "type": "module",
+  "version": "0.4.0",
+  "private": true,
   "packageManager": "pnpm@10.7.1",
   "scripts": {
+    "build": "nx build",
     "lint": "eslint --fix ."
   },
   "devDependencies": {

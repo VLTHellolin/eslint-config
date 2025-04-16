@@ -15,9 +15,11 @@ export const commands = (options: CommandsOptions = {}): FlatConfigItem[] => {
   } = options;
 
   return [
-    createCommand({
+    {
+      ...createCommand({
+        commands,
+      }),
       name: 'hellolin/commands',
-      commands,
-    }),
+    },
   ];
 };

@@ -1,17 +1,17 @@
 {
   "name": "@hellolin-eslint/shared",
-  "version": "0.4.0",
   "type": "module",
+  "version": "0.4.0",
   "description": "Shared internals for @hellolin/eslint-config",
+  "author": "hellolin <i@hellolin.top>",
+  "license": "MIT",
+  "homepage": "https://github.com/VLTHellolin/eslint-config",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": ["dist"],
   "scripts": {
     "build": "tsup"
   },
-  "author": "hellolin <i@hellolin.top>",
-  "license": "MIT",
-  "homepage": "https://github.com/VLTHellolin/eslint-config",
   "dependencies": {
     "@antfu/install-pkg": "^1.0.0",
     "@clack/prompts": "^0.10.0",

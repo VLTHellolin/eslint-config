@@ -110,6 +110,7 @@ export const typescript = (options: TypeScriptOptions = {}): FlatConfigItem[] =>
         GlobTS,
         ...checkJs ? [GlobJS] : [],
       ],
+      /// keep-sorted
       rules: {
         'ts/consistent-type-definitions': 'error',
         'ts/consistent-type-imports': ['error', {
@@ -121,6 +122,9 @@ export const typescript = (options: TypeScriptOptions = {}): FlatConfigItem[] =>
         'style/type-annotation-spacing': ['error', {
           before: false,
           after: true,
+          overrides: {
+            arrow: { before: true, after: true },
+          },
         }],
       },
     },
