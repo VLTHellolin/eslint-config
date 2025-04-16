@@ -190,7 +190,7 @@ export const json = (): FlatConfigItem[] => {
       name: 'hellolin/json/tsconfig-json',
       files: ['**/[jt]sconfig*.json'],
       rules: {
-        'jsonc/sort-keys': [
+        'json/sort-keys': [
           'error',
           {
             pathPattern: '^$',

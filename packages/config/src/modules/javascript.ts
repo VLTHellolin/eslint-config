@@ -164,7 +164,6 @@ export const javascript = (options: JavaScriptOptions = {}): FlatConfigItem[] =>
         'no-unsafe-finally': 'error',
         'no-unsafe-negation': 'error',
         'no-unused-vars': 'error',
-        'no-use-before-define;': 'error',
         'no-use-before-define': 'error',
         'no-useless-call': 'error',
         'no-useless-catch': 'error',
