@@ -1,0 +1,21 @@
+{
+  "name": "@hellolin-eslint/node-config",
+  "type": "module",
+  "version": "0.4.0",
+  "description": "Node config for @hellolin/eslint-config",
+  "author": "hellolin <i@hellolin.top>",
+  "license": "MIT",
+  "homepage": "https://github.com/VLTHellolin/eslint-config",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup"
+  },
+  "dependencies": {
+    "@hellolin-eslint/shared": "workspace:*",
+    "eslint-plugin-n": "^17.17.0"
+  }
+}
