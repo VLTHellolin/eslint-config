@@ -74,5 +74,3 @@ export const defineConfig = async (options: ESLintConfigOptions = {}): Promise<F
 
   return configs.flat();
 };
-
-export default defineConfig;

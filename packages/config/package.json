@@ -15,6 +15,9 @@
   "author": "hellolin <i@hellolin.top>",
   "license": "MIT",
   "homepage": "https://github.com/VLTHellolin/eslint-config",
+  "scripts": {
+    "build": "tsup"
+  },
   "peerDependencies": {
     "eslint": "*"
   },
