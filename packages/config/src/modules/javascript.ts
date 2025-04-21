@@ -252,7 +252,7 @@ export const javascript = (options: JavaScriptOptions = {}): FlatConfigItem[] =>
         'style/generator-star-spacing': 'error',
         'style/indent-binary-ops': ['error', 2],
         'style/indent': ['error', 2, {
-          SwitchCase: 0,
+          SwitchCase: 1,
           VariableDeclarator: 'first',
           offsetTernaryExpressions: true,
           ignoreComments: false,
