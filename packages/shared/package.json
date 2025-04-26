@@ -8,7 +8,9 @@
   "homepage": "https://github.com/VLTHellolin/eslint-config",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup"
   },
@@ -16,5 +18,9 @@
     "@antfu/install-pkg": "^1.0.0",
     "@clack/prompts": "^0.10.0",
     "local-pkg": "^1.1.1"
+  },
+  "devDependencies": {
+    "@typescript-eslint/utils": "^8.31.0",
+    "eslint": "^9.23.0"
   }
 }

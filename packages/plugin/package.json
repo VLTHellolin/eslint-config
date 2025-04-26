@@ -14,7 +14,13 @@
   "scripts": {
     "build": "tsup"
   },
+  "peerDependencies": {
+    "eslint": "^9.23.0"
+  },
   "dependencies": {
     "@hellolin-eslint/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "eslint": "^9.23.0"
   }
 }
