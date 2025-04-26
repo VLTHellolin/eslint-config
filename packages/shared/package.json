@@ -16,11 +16,11 @@
   },
   "dependencies": {
     "@antfu/install-pkg": "^1.0.0",
-    "@clack/prompts": "^0.10.0",
+    "@clack/prompts": "^0.10.1",
     "local-pkg": "^1.1.1"
   },
   "devDependencies": {
     "@typescript-eslint/utils": "^8.31.0",
-    "eslint": "^9.23.0"
+    "eslint": "^9.25.1"
   }
 }
