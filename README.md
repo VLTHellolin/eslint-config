@@ -2,20 +2,22 @@
 
 [![NPM Version](https://img.shields.io/npm/v/%40hellolin%2Feslint-config?style=flat-square)](https://npmjs.com/package/@hellolin/eslint-config)
 
-Opinionated personal ESLint config for React & Next.js developers.
+Opinionated personal ESLint config for frontend developers.
 
 - Compose with your config easily with the help of [ESLint flat config](https://eslint.org/docs/latest/use/configure/configuration-files).
-- [React](https://react.dev/), [Next.js](https://nextjs.org/) and [UnoCSS](https://unocss.dev/) support out-of-box.
+- [React](https://react.dev/), [Next.js](https://nextjs.org/), [UnoCSS](https://unocss.dev/) and [Storybook](https://storybook.js.org/) support by plugins.
 - Format your source code comfortably using [ESLint Stylistic](https://eslint.style/) and [eslint-plugin-format](https://github.com/antfu/eslint-plugin-format).
 - Best practices included, simple usage for everyone.
 
 ## Usage
 
+To use the config, make sure you have installed ESLint first:
+
 ```shell
 pnpm install -D eslint @hellolin/eslint-config
 ```
 
-Then create a `eslint.config.js` in your project root:
+Create a `eslint.config.js` (or `.ts`) in your project root:
 
 ```js
 import defineConfig from '@hellolin/eslint-config';
@@ -23,91 +25,45 @@ import defineConfig from '@hellolin/eslint-config';
 export default defineConfig();
 ```
 
-Then you can lint files:
-
-```shell
-pnpm exec eslint .
-```
-
-Optionally add it to your `package.json`:
-
-```json
-{
-  // ...
-  "scripts": {
-    "lint": "eslint --fix ."
-  }
-  // ...
-}
-```
-
 ## Customization
 
-You can pass your options to `defineConfig`.
-
-For advanced usage, view [types.ts](https://github.com/VLTHellolin/eslint-config/blob/main/src/types.ts).
+You can pass your options to the `defineConfig` factory.
 
 ```js
 import defineConfig from '@hellolin/eslint-config';
 
 export default defineConfig({
-  typescript: {
-    // Strict checking (enabled by default)
-    strict: true,
-    // Enable rules related to any type
-    enableAnyRelatedRules: true,
+  javascript: {
+    sourceType: 'module',
+    env: {
+      browser: true,
+    },
   },
-  // Enable React support
-  react: true,
-  // Enable Next.js support
-  next: true,
-  // Enable UnoCSS support
-  unocss: {
-    // Attributify mode (enabled by default)
-    attributify: true,
+  typescript: true,
+  markdown: {
+    type: 'commonmark',
   },
-  // Enable Storybook support (>=0.5.0)
+  react: {
+    checkNonJSXFiles: true,
+    additionalHooks: ['useAbortableEffect'],
+    next: true,
+    reactCompiler: true,
+  },
+  unocss: true,
   storybook: true,
-  // JSON/JSONC/JSON5 mode
-  json: {
-    type: 'json5',
-  },
-  node: {
-    // Disallow importing extraneous packages that isn't listed in package.json
-    // This option is disabled by default because it cannot work properly in monorepo projects
-    disallowExtraneousPackages: true,
-  },
 });
 ```
 
-Notice that if you want to enable Next.js and UnoCSS features, you need to install their plugins:
+By default, the most commonly used parts (JavaScript, TypeScript, Markdown, JSON, YAML, ...) are included in the main package `@hellolin/eslint-config`.
+
+If you want to use Node.js, React, Storybook or UnoCSS features (i.e. enable the corresponding config item), you need to install additional plugins:
 
 ```shell
-# For Next.js
-pnpm install -D @next/eslint-plugin-next
-# For UnoCSS
-pnpm install -D @unocss/eslint-plugin
+pnpm install -D @hellolin-eslint/react-config
+pnpm install -D @hellolin-eslint/unocss-config
 ```
 
-You can also pass ESLint flat config items after the first parameter of `defineConfig`:
-
-```js
-import defineConfig from '@hellolin/eslint-config';
-
-export default defineConfig(
-  {
-    react: true,
-    next: true,
-  },
-  {
-    files: ['**/*.?([cm])[jt]s?(x)'],
-    rules: {
-      'react/no-class-component': 'off',
-      'react/no-complex-conditional-rendering': 'off',
-    },
-  },
-);
-```
+Or you can run the lint command once, and the CLI will prompt you to install the required but missing dependencies automatically.
 
 ## Editor support
 
@@ -157,7 +113,7 @@ To integrate with VSCode, install [ESLint extension](https://marketplace.visuals
 
 ## Acknowledgements
 
-This project is inspired by [@antfu/eslint-config](https://github.com/antfu/eslint-config).
+This project is inspired by [@antfu/eslint-config](https://github.com/antfu/eslint-config) and [eslint-config-sukka](https://github.com/SukkaW/eslint-config-sukka).
 
 ## License
 
