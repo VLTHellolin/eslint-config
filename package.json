@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.0.0",
   "private": true,
-  "packageManager": "pnpm@10.10.0",
+  "packageManager": "pnpm@10.14.0",
   "scripts": {
     "build": "turbo build",
     "lint": "eslint --fix .",
@@ -11,11 +11,11 @@
   },
   "devDependencies": {
     "@hellolin/eslint-config": "workspace:*",
-    "@types/node": "^22.15.3",
-    "bumpp": "^10.1.0",
-    "eslint": "^9.25.1",
-    "tsup": "^8.4.0",
-    "turbo": "^2.5.2",
-    "typescript": "^5.8.3"
+    "@types/node": "^22.17.1",
+    "bumpp": "^10.2.2",
+    "eslint": "^9.33.0",
+    "tsup": "^8.5.0",
+    "turbo": "^2.5.5",
+    "typescript": "^5.9.2"
   }
 }
