@@ -6,7 +6,7 @@ export const node = (): FlatConfigItem[] => {
     {
       name: 'hellolin/node',
       plugins: {
-        n: memorize(pluginNode, 'eslint-plugin-n'),
+        n: memorize(pluginNode, 'eslint-plugin-n') as any,
       },
       rules: {
         'n/no-deprecated-api': 'error',
