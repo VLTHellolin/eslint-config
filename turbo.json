@@ -9,6 +9,8 @@
   },
   "globalDependencies": [
     "tsconfig.json",
-    "eslint.config.ts"
+    "eslint.config.ts",
+    "commitlint.config.js",
+    "lint-staged.config.js"
   ]
 }
