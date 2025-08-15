@@ -1,4 +1,5 @@
 import type { ReactOptions } from '@hellolin-eslint/react-config';
+import type { UnoCSSOptions } from '@hellolin-eslint/unocss-config';
 import { type FlatConfigItem, requirePackage } from '@hellolin-eslint/shared';
 import { commands, type CommandsOptions } from './modules/commands';
 import { ignores, type IgnoresOptions } from './modules/ignores';
@@ -19,7 +20,7 @@ export interface ESLintConfigOptions {
   node?: boolean;
   react?: boolean | ReactOptions;
   storybook?: boolean;
-  unocss?: boolean;
+  unocss?: boolean | UnoCSSOptions;
 }
 
 const resolveOptions = <T extends object>(options?: T | boolean) =>
@@ -69,7 +70,7 @@ export const defineConfig = async (options: ESLintConfigOptions = {}): Promise<F
   }
   if (options.unocss ?? false) {
     const { unocss } = await requirePackage('@hellolin-eslint/unocss-config') as typeof import('@hellolin-eslint/unocss-config');
-    configs.push(unocss());
+    configs.push(unocss(resolveOptions(options.unocss)));
   }
 
   return configs.flat();
