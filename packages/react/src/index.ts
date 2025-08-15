@@ -5,6 +5,7 @@ import pluginNext from '@next/eslint-plugin-next';
 import pluginReactCompiler from 'eslint-plugin-react-compiler';
 import pluginReactHooks from 'eslint-plugin-react-hooks';
 import pluginReactRefresh from 'eslint-plugin-react-refresh';
+import globals from 'globals';
 
 export interface ReactOptions {
   /**
@@ -12,6 +13,12 @@ export interface ReactOptions {
    * @default false
    */
   checkNonJSXFiles?: boolean;
+  /**
+   * The prop used for polymorphic components.
+   * @see https://eslint-react.xyz/docs/configuration/configure-analyzer#polymorphicpropname
+   * @default undefined
+   */
+  polymorphicPropName?: string;
   /**
    * Additional hooks to be considered as custom hooks that have dependencies.
    * @see https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks#advanced-configuration
@@ -33,7 +40,7 @@ export interface ReactOptions {
    * @see https://github.com/facebook/react/tree/main/compiler/packages/eslint-plugin-react-compiler
    * @default true
    */
-  reactCompiler?: boolean;
+  reactCompiler?: boolean | 'off' | 'warn' | 'error';
   /**
    * Whether to enable `eslint-plugin-react-refresh`, or whether to allow constant exports in React files.
    * @see https://github.com/ArnaudBarre/eslint-plugin-react-refresh
@@ -61,6 +68,7 @@ const memorizedReactPluginList = Object.fromEntries(
 export const react = (options: ReactOptions = {}): FlatConfigItem[] => {
   const {
     checkNonJSXFiles = false,
+    polymorphicPropName,
     additionalHooks = ['useIsomorphicLayoutEffect', 'useAbortableEffect'],
     next = false,
     remix = false,
@@ -77,6 +85,15 @@ export const react = (options: ReactOptions = {}): FlatConfigItem[] => {
     {
       name: 'hellolin/react',
       files: checkNonJSXFiles ? [GlobSource] : [GlobJSX, GlobTSX],
+      languageOptions: {
+        globals: globals.browser,
+      },
+      settings: {
+        'react-x': {
+          version: 'detect',
+          polymorphicPropName,
+        },
+      },
       plugins: {
         ...memorizedReactPluginList as any,
         'react-hooks': pluginReactHooks,
@@ -85,7 +102,7 @@ export const react = (options: ReactOptions = {}): FlatConfigItem[] => {
       },
       /// keep-sorted
       rules: {
-        'react-compiler/react-compiler': reactCompiler ? 'error' : 'off',
+        'react-compiler/react-compiler': reactCompiler ? (reactCompiler === true ? 'error' : reactCompiler) : 'off',
         'react-dom/no-dangerously-set-innerhtml-with-children': 'error',
         'react-dom/no-dangerously-set-innerhtml': 'warn',
         'react-dom/no-find-dom-node': 'error',

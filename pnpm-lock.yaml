@@ -142,6 +142,9 @@ importers:
       eslint-plugin-react-refresh:
         specifier: ^0.4.20
         version: 0.4.20(eslint@9.33.0(jiti@2.5.1))
+      globals:
+        specifier: ^16.0.0
+        version: 16.0.0
 
   packages/shared:
     dependencies:
