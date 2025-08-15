@@ -1,11 +1,11 @@
 import pluginReact from '@eslint-react/eslint-plugin';
 import { type FlatConfigItem, GlobJSX, GlobSource, GlobTSX, memorize } from '@hellolin-eslint/shared';
-// @ts-expect-error
-import pluginNext from '@next/eslint-plugin-next';
 import pluginReactCompiler from 'eslint-plugin-react-compiler';
 import pluginReactHooks from 'eslint-plugin-react-hooks';
 import pluginReactRefresh from 'eslint-plugin-react-refresh';
 import globals from 'globals';
+import { isPackageExists } from 'local-pkg';
+import { next as nextConfig } from './next';
 
 export interface ReactOptions {
   /**
@@ -65,13 +65,26 @@ const memorizedReactPluginList = Object.fromEntries(
   ),
 );
 
+const detectRemix = () =>
+  [
+    '@remix-run/node',
+    '@remix-run/react',
+    '@remix-run/serve',
+    '@remix-run/dev',
+    'react-router',
+    '@react-router/node',
+    '@react-router/serve',
+    '@react-router/dev',
+  ].some(pkg => isPackageExists(pkg));
+const detectNext = () => isPackageExists('next');
+
 export const react = (options: ReactOptions = {}): FlatConfigItem[] => {
   const {
     checkNonJSXFiles = false,
     polymorphicPropName,
     additionalHooks = ['useIsomorphicLayoutEffect', 'useAbortableEffect'],
-    next = false,
-    remix = false,
+    next = detectNext(),
+    remix = detectRemix(),
     reactCompiler = true,
     reactFastRefresh = true,
   } = options;
@@ -81,10 +94,12 @@ export const react = (options: ReactOptions = {}): FlatConfigItem[] => {
       ? (reactFastRefresh.allowConstantExport ?? true)
       : true;
 
+  const files = checkNonJSXFiles ? [GlobSource] : [GlobJSX, GlobTSX];
+
   const configs: FlatConfigItem[] = [
     {
       name: 'hellolin/react',
-      files: checkNonJSXFiles ? [GlobSource] : [GlobJSX, GlobTSX],
+      files,
       languageOptions: {
         globals: globals.browser,
       },
@@ -206,34 +221,7 @@ export const react = (options: ReactOptions = {}): FlatConfigItem[] => {
   ];
 
   if (next) {
-    configs.push({
-      name: 'hellolin/next',
-      files: checkNonJSXFiles ? [GlobSource] : [GlobJSX, GlobTSX],
-      plugins: {
-        next: pluginNext,
-      },
-      /// keep-sorted
-      rules: {
-        'next/google-font-display': 'warn',
-        'next/google-font-preconnect': 'warn',
-        'next/inline-script-id': 'error',
-        'next/next-script-for-ga': 'warn',
-        'next/no-assign-module-variable': 'error',
-        'next/no-async-client-component': 'error',
-        'next/no-before-interactive-script-outside-document': 'error',
-        'next/no-css-tags': 'warn',
-        'next/no-document-import-in-page': 'error',
-        'next/no-duplicate-head': 'error',
-        'next/no-head-import-in-document': 'error',
-        'next/no-html-link-for-pages': 'error',
-        'next/no-img-element': 'error',
-        'next/no-page-custom-font': 'warn',
-        'next/no-styled-jsx-in-document': 'warn',
-        'next/no-sync-scripts': 'warn',
-        'next/no-typos': 'warn',
-        'next/no-unwanted-polyfillio': 'error',
-      },
-    });
+    configs.concat(nextConfig());
   }
 
   return configs;
