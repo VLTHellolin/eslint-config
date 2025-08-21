@@ -1,7 +1,7 @@
 {
   "name": "@hellolin/eslint-config",
   "type": "module",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Hellolin's ESLint config",
   "author": "hellolin <i@hellolin.top>",
   "license": "MIT",
