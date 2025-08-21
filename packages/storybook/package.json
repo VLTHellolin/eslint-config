@@ -16,6 +16,6 @@
   },
   "dependencies": {
     "@hellolin-eslint/shared": "workspace:*",
-    "eslint-plugin-storybook": "^0.11.6"
+    "eslint-plugin-storybook": "^9.1.3"
   }
 }

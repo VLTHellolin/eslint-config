@@ -21,6 +21,6 @@
     "@hellolin-eslint/shared": "workspace:*"
   },
   "devDependencies": {
-    "eslint": "^9.25.1"
+    "eslint": "^9.33.0"
   }
 }
