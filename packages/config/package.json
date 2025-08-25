@@ -22,7 +22,7 @@
     "eslint": "*"
   },
   "dependencies": {
-    "@eslint/markdown": "^7.1.0",
+    "@eslint/markdown": "^7.2.0",
     "@hellolin-eslint/shared": "workspace:*",
     "@stylistic/eslint-plugin": "^5.2.3",
     "@typescript-eslint/eslint-plugin": "^8.40.0",
@@ -42,6 +42,6 @@
     "@hellolin-eslint/react-config": "workspace:*",
     "@hellolin-eslint/storybook-config": "workspace:*",
     "@hellolin-eslint/unocss-config": "workspace:*",
-    "eslint": "^9.33.0"
+    "eslint": "^9.34.0"
   }
 }
