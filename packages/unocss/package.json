@@ -16,6 +16,6 @@
   },
   "dependencies": {
     "@hellolin-eslint/shared": "workspace:*",
-    "@unocss/eslint-plugin": "^66.4.2"
+    "@unocss/eslint-plugin": "^66.5.1"
   }
 }
