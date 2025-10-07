@@ -272,7 +272,6 @@ export const javascript = (options: JavaScriptOptions = {}): FlatConfigItem[] =>
           allowNamespace: true,
           ignore: ['[A-Z]+'],
         }],
-        'style/jsx-props-no-multi-spaces': 'error',
         'style/jsx-quotes': ['error', 'prefer-single'],
         'style/jsx-self-closing-comp': 'error',
         'style/jsx-tag-spacing': ['error', {
