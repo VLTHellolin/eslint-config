@@ -18,15 +18,15 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
       - name: Setup Node
         uses: actions/setup-node@v5
         with:
           registry-url: 'https://registry.npmjs.org'
           node-version-file: '.node-version'
           cache: pnpm
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
 
       - name: Install dependencies
         run: pnpm install
@@ -40,6 +40,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish to npm
-        run: pnpm publish -r --no-git-checks
+        run: pnpm publish -r --no-git-checks --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
