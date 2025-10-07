@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.2.0",
   "private": true,
-  "packageManager": "pnpm@10.15.0",
+  "packageManager": "pnpm@10.18.1",
   "scripts": {
     "prepare": "husky",
     "build": "turbo build",
@@ -14,14 +14,14 @@
   "devDependencies": {
     "@commitlint/config-conventional": "^19.8.1",
     "@hellolin/eslint-config": "workspace:*",
-    "@types/node": "^22.17.2",
-    "bumpp": "^10.2.3",
+    "@types/node": "^22.18.8",
+    "bumpp": "^10.3.1",
     "commitlint": "^19.8.1",
-    "eslint": "^9.33.0",
+    "eslint": "^9.37.0",
     "husky": "^9.1.7",
-    "lint-staged": "^16.1.5",
+    "lint-staged": "^16.2.3",
     "tsup": "^8.5.0",
-    "turbo": "^2.5.6",
+    "turbo": "^2.5.8",
     "typescript": "5.8.3"
   }
 }
