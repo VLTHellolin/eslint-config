@@ -3,6 +3,7 @@ import type { UnoCSSOptions } from '@hellolin-eslint/unocss-config';
 import { type FlatConfigItem, requirePackage } from '@hellolin-eslint/shared';
 import { commands, type CommandsOptions } from './modules/commands';
 import { ignores, type IgnoresOptions } from './modules/ignores';
+import { imports } from './modules/imports';
 import { javascript, type JavaScriptOptions } from './modules/javascript';
 import { json } from './modules/json';
 import { markdown, type MarkdownOptions } from './modules/markdown';
@@ -34,6 +35,7 @@ export const defineConfig = async (options: ESLintConfigOptions = {}): Promise<F
     ignores(options.ignores),
     javascript(options.javascript),
     commands(options.commands),
+    imports(),
   );
 
   if (options.typescript ?? true) {
