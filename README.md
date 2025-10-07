@@ -81,6 +81,8 @@ To integrate with VSCode, install [ESLint extension](https://marketplace.visuals
   "eslint.rules.customizations": [
     { "rule": "style/*", "severity": "off", "fixable": true },
     { "rule": "format/*", "severity": "off", "fixable": true },
+    { "rule": "perfectionist/*", "severity": "off", "fixable": true },
+    { "rule": "json/sort-*", "severity": "off", "fixable": true },
     { "rule": "*-indent", "severity": "off", "fixable": true },
     { "rule": "*-spacing", "severity": "off", "fixable": true },
     { "rule": "*-spaces", "severity": "off", "fixable": true },
