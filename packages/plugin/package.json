@@ -12,7 +12,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup"
+    "build": "rollup -c"
   },
   "peerDependencies": {
     "eslint": "^9.23.0"
@@ -21,6 +21,7 @@
     "@hellolin-eslint/shared": "workspace:*"
   },
   "devDependencies": {
+    "@hellolin-eslint/rollup-config": "workspace:*",
     "eslint": "^9.37.0"
   }
 }

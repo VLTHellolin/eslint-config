@@ -12,10 +12,13 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup"
+    "build": "rollup -c"
   },
   "dependencies": {
     "@hellolin-eslint/shared": "workspace:*",
     "eslint-plugin-storybook": "^9.1.10"
+  },
+  "devDependencies": {
+    "@hellolin-eslint/rollup-config": "workspace:*"
   }
 }

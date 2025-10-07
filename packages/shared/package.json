@@ -12,7 +12,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup"
+    "build": "rollup -c"
   },
   "dependencies": {
     "@antfu/install-pkg": "^1.1.0",
@@ -20,6 +20,7 @@
     "local-pkg": "^1.1.2"
   },
   "devDependencies": {
+    "@hellolin-eslint/rollup-config": "workspace:*",
     "@typescript-eslint/utils": "^8.46.0",
     "eslint": "^9.37.0"
   }

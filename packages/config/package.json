@@ -2,7 +2,7 @@
   "name": "@hellolin/eslint-config",
   "type": "module",
   "version": "1.2.0",
-  "description": "Hellolin's ESLint config",
+  "description": "Opinionated ESLint config for frontend developers.",
   "author": "hellolin <i@hellolin.top>",
   "license": "MIT",
   "homepage": "https://github.com/VLTHellolin/eslint-config",
@@ -16,7 +16,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup"
+    "build": "rollup -c"
   },
   "peerDependencies": {
     "eslint": "*"
@@ -40,6 +40,7 @@
   "devDependencies": {
     "@hellolin-eslint/node-config": "workspace:*",
     "@hellolin-eslint/react-config": "workspace:*",
+    "@hellolin-eslint/rollup-config": "workspace:*",
     "@hellolin-eslint/storybook-config": "workspace:*",
     "@hellolin-eslint/unocss-config": "workspace:*",
     "eslint": "^9.37.0"
