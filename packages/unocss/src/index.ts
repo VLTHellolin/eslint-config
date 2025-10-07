@@ -1,4 +1,5 @@
-import { type FlatConfigItem, memorize } from '@hellolin-eslint/shared';
+import type { FlatConfigItem } from '@hellolin-eslint/shared';
+import { memorize } from '@hellolin-eslint/shared';
 import pluginUnoCSS from '@unocss/eslint-plugin';
 
 export interface UnoCSSOptions {

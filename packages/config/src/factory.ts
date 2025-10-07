@@ -1,14 +1,20 @@
 import type { ReactOptions } from '@hellolin-eslint/react-config';
+import type { FlatConfigItem } from '@hellolin-eslint/shared';
 import type { UnoCSSOptions } from '@hellolin-eslint/unocss-config';
-import { type FlatConfigItem, requirePackage } from '@hellolin-eslint/shared';
+import type { CommandsOptions } from './modules/commands';
+import type { IgnoresOptions } from './modules/ignores';
+import type { JavaScriptOptions } from './modules/javascript';
+import type { MarkdownOptions } from './modules/markdown';
+import type { TypeScriptOptions } from './modules/typescript';
+import { requirePackage } from '@hellolin-eslint/shared';
 import { isPackageExists } from 'local-pkg';
-import { commands, type CommandsOptions } from './modules/commands';
-import { ignores, type IgnoresOptions } from './modules/ignores';
+import { commands } from './modules/commands';
+import { ignores } from './modules/ignores';
 import { imports } from './modules/imports';
-import { javascript, type JavaScriptOptions } from './modules/javascript';
+import { javascript } from './modules/javascript';
 import { json } from './modules/json';
-import { markdown, type MarkdownOptions } from './modules/markdown';
-import { typescript, type TypeScriptOptions } from './modules/typescript';
+import { markdown } from './modules/markdown';
+import { typescript } from './modules/typescript';
 import { yaml } from './modules/yaml';
 
 export interface ESLintConfigOptions {

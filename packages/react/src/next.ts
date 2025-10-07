@@ -1,5 +1,6 @@
+import type { FlatConfigItem } from '@hellolin-eslint/shared';
 import type { ReactOptions } from '.';
-import { type FlatConfigItem, GlobJSX, GlobSource, GlobTSX } from '@hellolin-eslint/shared';
+import { GlobJSX, GlobSource, GlobTSX } from '@hellolin-eslint/shared';
 // @ts-expect-error
 import pluginNext from '@next/eslint-plugin-next';
 

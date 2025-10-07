@@ -1,4 +1,5 @@
-import { type FlatConfigItem, GlobJson, GlobJson5, GlobJsonc, memorize, type Rules } from '@hellolin-eslint/shared';
+import type { FlatConfigItem, Rules } from '@hellolin-eslint/shared';
+import { GlobJson, GlobJson5, GlobJsonc, memorize } from '@hellolin-eslint/shared';
 import pluginJson from 'eslint-plugin-jsonc';
 import parserJson from 'jsonc-eslint-parser';
 

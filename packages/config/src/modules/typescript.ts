@@ -1,4 +1,5 @@
-import { type FlatConfigItem, GlobJS, GlobTests, GlobTS, memorize } from '@hellolin-eslint/shared';
+import type { FlatConfigItem } from '@hellolin-eslint/shared';
+import { GlobJS, GlobTests, GlobTS, memorize } from '@hellolin-eslint/shared';
 import pluginTypeScript from '@typescript-eslint/eslint-plugin';
 import parserTypeScript from '@typescript-eslint/parser';
 

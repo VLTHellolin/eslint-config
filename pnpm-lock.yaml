@@ -11,6 +11,9 @@ importers:
       '@commitlint/config-conventional':
         specifier: ^19.8.1
         version: 19.8.1
+      '@hellolin-eslint/node-config':
+        specifier: workspace:*
+        version: link:packages/node
       '@hellolin/eslint-config':
         specifier: workspace:*
         version: link:packages/config

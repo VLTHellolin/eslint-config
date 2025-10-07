@@ -1,4 +1,5 @@
-import { type FlatConfigItem, memorize } from '@hellolin-eslint/shared';
+import type { FlatConfigItem } from '@hellolin-eslint/shared';
+import { memorize } from '@hellolin-eslint/shared';
 import pluginNode from 'eslint-plugin-n';
 
 export const node = (): FlatConfigItem[] => {

@@ -1,5 +1,6 @@
+import type { FlatConfigItem } from '@hellolin-eslint/shared';
 import pluginReact from '@eslint-react/eslint-plugin';
-import { type FlatConfigItem, GlobJSX, GlobSource, GlobTSX, memorize } from '@hellolin-eslint/shared';
+import { GlobJSX, GlobSource, GlobTSX, memorize } from '@hellolin-eslint/shared';
 import pluginReactCompiler from 'eslint-plugin-react-compiler';
 import pluginReactHooks from 'eslint-plugin-react-hooks';
 import pluginReactRefresh from 'eslint-plugin-react-refresh';

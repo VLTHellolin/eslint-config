@@ -1,6 +1,7 @@
 import type { FlatConfigItem } from '@hellolin-eslint/shared';
+import type { FlatGitignoreOptions } from 'eslint-config-flat-gitignore';
 import { GlobIgnores } from '@hellolin-eslint/shared';
-import gitignore, { type FlatGitignoreOptions } from 'eslint-config-flat-gitignore';
+import gitignore from 'eslint-config-flat-gitignore';
 
 export interface IgnoresOptions {
   /**

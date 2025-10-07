@@ -1,4 +1,5 @@
-import { type FlatConfigItem, GlobStories, memorize } from '@hellolin-eslint/shared';
+import type { FlatConfigItem } from '@hellolin-eslint/shared';
+import { GlobStories, memorize } from '@hellolin-eslint/shared';
 import pluginStorybook from 'eslint-plugin-storybook';
 
 export const storybook = (): FlatConfigItem[] => {
