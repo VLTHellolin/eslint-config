@@ -1,6 +1,7 @@
 # @hellolin/eslint-config
 
 [![NPM Version](https://img.shields.io/npm/v/%40hellolin%2Feslint-config?style=flat-square)](https://npmjs.com/package/@hellolin/eslint-config)
+[![GitHub Action](https://img.shields.io/github/actions/workflow/status/VLTHellolin/eslint-config/release.yaml?style=flat-square)](https://github.com/VLTHellolin/eslint-config/actions/workflows/release.yaml)
 
 Opinionated personal ESLint config for frontend developers.
 
@@ -119,6 +120,6 @@ This project is inspired by [@antfu/eslint-config](https://github.com/antfu/esli
 
 ## License
 
-Release under the [MIT License](https://github.com/VLTHellolin/eslint-config/blob/main/LICENSE).
+Released under the [MIT License](https://github.com/VLTHellolin/eslint-config/blob/main/LICENSE).
 
 Copyright © 2025 [hellolin](https://hellolin.top). All rights reserved.
