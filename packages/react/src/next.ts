@@ -1,7 +1,6 @@
 import type { FlatConfigItem } from '@hellolin-eslint/shared';
 import type { ReactOptions } from '.';
 import { GlobJSX, GlobSource, GlobTSX } from '@hellolin-eslint/shared';
-// @ts-expect-error
 import pluginNext from '@next/eslint-plugin-next';
 
 export const next = (options: ReactOptions = {}): FlatConfigItem[] => {
@@ -14,7 +13,7 @@ export const next = (options: ReactOptions = {}): FlatConfigItem[] => {
     name: 'hellolin/next',
     files,
     plugins: {
-      next: pluginNext,
+      next: pluginNext as any,
     },
     /// keep-sorted
     rules: {
@@ -30,7 +29,6 @@ export const next = (options: ReactOptions = {}): FlatConfigItem[] => {
       'next/no-duplicate-head': 'error',
       'next/no-head-import-in-document': 'error',
       'next/no-html-link-for-pages': 'error',
-      'next/no-img-element': 'error',
       'next/no-page-custom-font': 'warn',
       'next/no-styled-jsx-in-document': 'warn',
       'next/no-sync-scripts': 'warn',
