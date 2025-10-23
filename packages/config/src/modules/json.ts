@@ -34,7 +34,7 @@ const jsonSharedRules: Rules = {
   'json/vue-custom-block/no-parsing-error': 'error',
   'no-unused-expressions': 'off',
   'no-unused-vars': 'off',
-  'strict': 'off',
+  strict: 'off',
 };
 
 export const json = (): FlatConfigItem[] => {
