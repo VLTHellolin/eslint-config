@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@hellolin-eslint/rollup-config": "workspace:*",
-    "@typescript-eslint/utils": "^8.46.0",
-    "eslint": "^9.37.0"
+    "@typescript-eslint/utils": "^8.46.2",
+    "eslint": "^9.38.0"
   }
 }

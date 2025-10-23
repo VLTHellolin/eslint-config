@@ -41,4 +41,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish to npm
-        run: pnpm publish -r --no-git-checks --access public\
+        run: pnpm publish -r --no-git-checks --access public

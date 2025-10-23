@@ -32,11 +32,11 @@
     "eslint": "*"
   },
   "dependencies": {
-    "@eslint/markdown": "^7.4.0",
+    "@eslint/markdown": "^7.5.0",
     "@hellolin-eslint/shared": "workspace:*",
-    "@stylistic/eslint-plugin": "^5.4.0",
-    "@typescript-eslint/eslint-plugin": "^8.46.0",
-    "@typescript-eslint/parser": "^8.46.0",
+    "@stylistic/eslint-plugin": "^5.5.0",
+    "@typescript-eslint/eslint-plugin": "^8.46.2",
+    "@typescript-eslint/parser": "^8.46.2",
     "eslint-config-flat-gitignore": "^2.1.0",
     "eslint-plugin-command": "^3.3.1",
     "eslint-plugin-import-lite": "^0.3.0",
@@ -55,6 +55,6 @@
     "@hellolin-eslint/rollup-config": "workspace:*",
     "@hellolin-eslint/storybook-config": "workspace:*",
     "@hellolin-eslint/unocss-config": "workspace:*",
-    "eslint": "^9.37.0"
+    "eslint": "^9.38.0"
   }
 }
