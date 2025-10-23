@@ -1,7 +1,7 @@
 {
   "name": "@hellolin-eslint/shared",
   "type": "module",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Shared internals for @hellolin/eslint-config",
   "author": "hellolin <i@hellolin.top>",
   "license": "MIT",
