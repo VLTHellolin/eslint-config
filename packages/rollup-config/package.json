@@ -6,6 +6,10 @@
   "author": "hellolin <i@hellolin.top>",
   "license": "MIT",
   "homepage": "https://github.com/VLTHellolin/eslint-config",
+  "repository": {
+    "url": "https://github.com/VLTHellolin/eslint-config",
+    "directory": "packages/rollup-config"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
