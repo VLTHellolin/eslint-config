@@ -62,7 +62,6 @@ export const javascript = (options: JavaScriptOptions = {}): FlatConfigItem[] =>
         'constructor-super': 'error',
         'default-case-last': 'error',
         'dot-notation': 'warn',
-        'eqeqeq': ['error', 'smart'],
         'for-direction': 'error',
         'getter-return': 'error',
         'no-alert': 'error',
@@ -207,7 +206,8 @@ export const javascript = (options: JavaScriptOptions = {}): FlatConfigItem[] =>
         'use-isnan': 'error',
         'valid-typeof': ['error', { requireStringLiterals: true }],
         'vars-on-top': 'error',
-        'yoda': ['error', 'never'],
+        eqeqeq: ['error', 'smart'],
+        yoda: ['error', 'never'],
       },
     },
     {

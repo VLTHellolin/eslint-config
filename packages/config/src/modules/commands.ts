@@ -11,7 +11,7 @@ export interface CommandsOptions {
 
 export const commands = (options: CommandsOptions = {}): FlatConfigItem[] => {
   const {
-    commands = [],
+    commands,
   } = options;
 
   return [
