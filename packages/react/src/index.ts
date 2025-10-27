@@ -58,7 +58,7 @@ export interface ReactOptions {
 
 const memorizedPluginReact = memorize(pluginReact, '@eslint-react/eslint-plugin');
 const memorizedReactPluginList = Object.fromEntries(
-  Object.entries(memorizedPluginReact.configs.recommended.plugins).map(
+  Object.entries((memorizedPluginReact.configs.recommended as any).plugins).map(
     ([name, value]) => [
       name.replace('@eslint-react', 'react').replace('/', '-'),
       value,
@@ -203,7 +203,7 @@ export const react = (options: ReactOptions = {}): FlatConfigItem[] => {
         'react/no-implicit-key': 'warn',
         'react/no-leaked-conditional-rendering': 'error',
         'react/no-missing-key': 'error',
-        'react/no-nested-components-definitions': 'error',
+        'react/no-nested-component-definitions': 'error',
         'react/no-nested-lazy-component-declarations': 'error',
         'react/no-prop-types': 'error',
         'react/no-redundant-should-component-update': 'error',
