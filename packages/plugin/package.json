@@ -2,7 +2,7 @@
   "name": "@hellolin-eslint/plugin",
   "type": "module",
   "version": "3.0.0",
-  "description": "Plugin for @hellolin/eslint-config",
+  "description": "Plugin for @hellolin-eslint/config",
   "author": "hellolin <i@hellolin.top>",
   "license": "MIT",
   "homepage": "https://github.com/VLTHellolin/eslint-config",

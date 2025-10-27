@@ -2,7 +2,7 @@
   "name": "@hellolin-eslint/shared",
   "type": "module",
   "version": "3.0.0",
-  "description": "Shared internals for @hellolin/eslint-config",
+  "description": "Shared internals for @hellolin-eslint/config",
   "author": "hellolin <i@hellolin.top>",
   "license": "MIT",
   "homepage": "https://github.com/VLTHellolin/eslint-config",

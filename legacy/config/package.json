@@ -1,0 +1,34 @@
+{
+  "name": "@hellolin/eslint-config",
+  "type": "module",
+  "version": "3.0.0",
+  "description": "[Use @hellolin-eslint/config instead] Opinionated ESLint config for frontend developers.",
+  "author": "hellolin <i@hellolin.top>",
+  "license": "MIT",
+  "homepage": "https://github.com/VLTHellolin/eslint-config",
+  "repository": {
+    "url": "https://github.com/VLTHellolin/eslint-config",
+    "directory": "packages/config"
+  },
+  "keywords": [
+    "eslint",
+    "eslint-config"
+  ],
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js"
+    }
+  },
+  "module": "./index.js",
+  "types": "./index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "peerDependencies": {
+    "eslint": "*"
+  },
+  "dependencies": {
+    "@hellolin-eslint/config": "workspace:*"
+  }
+}

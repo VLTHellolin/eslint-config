@@ -1,6 +1,6 @@
-# @hellolin/eslint-config
+# @hellolin-eslint/config
 
-[![NPM Version](https://img.shields.io/npm/v/%40hellolin%2Feslint-config?style=flat-square)](https://npmjs.com/package/@hellolin/eslint-config)
+[![NPM Version](https://img.shields.io/npm/v/%40hellolin-eslint%2Fconfig?style=flat-square)](https://npmjs.com/package/@hellolin-eslint/config)
 [![GitHub Action](https://img.shields.io/github/actions/workflow/status/VLTHellolin/eslint-config/release.yaml?style=flat-square)](https://github.com/VLTHellolin/eslint-config/actions/workflows/release.yaml)
 
 Opinionated personal ESLint config for frontend developers.
@@ -15,13 +15,13 @@ Opinionated personal ESLint config for frontend developers.
 To use the config, make sure you have installed ESLint first:
 
 ```shell
-pnpm install -D eslint @hellolin/eslint-config
+pnpm install -D eslint @hellolin-eslint/config
 ```
 
 Create a `eslint.config.js` (or `.ts`) in your project root:
 
 ```js
-import defineConfig from '@hellolin/eslint-config';
+import defineConfig from '@hellolin-eslint/config';
 
 export default defineConfig();
 ```
@@ -31,7 +31,7 @@ export default defineConfig();
 You can pass your options to the `defineConfig` factory.
 
 ```js
-import defineConfig from '@hellolin/eslint-config';
+import defineConfig from '@hellolin-eslint/config';
 
 export default defineConfig({
   javascript: {
@@ -55,7 +55,7 @@ export default defineConfig({
 });
 ```
 
-By default, the most commonly used parts (JavaScript, TypeScript, Markdown, JSON, YAML, ...) are included in the main package `@hellolin/eslint-config`.
+By default, the most commonly used parts (JavaScript, TypeScript, Markdown, JSON, YAML, ...) are included in the main package `@hellolin-eslint/config`.
 
 If you want to use Node.js, React, Storybook or UnoCSS features (i.e. enable the corresponding config item), you need to install additional plugins:
 

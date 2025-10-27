@@ -2,7 +2,7 @@
   "name": "@hellolin-eslint/storybook-config",
   "type": "module",
   "version": "3.0.0",
-  "description": "Storybook config for @hellolin/eslint-config",
+  "description": "Storybook config for @hellolin-eslint/config",
   "author": "hellolin <i@hellolin.top>",
   "license": "MIT",
   "homepage": "https://github.com/VLTHellolin/eslint-config",

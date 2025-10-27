@@ -1,5 +1,5 @@
 {
-  "name": "@hellolin/eslint-config",
+  "name": "@hellolin-eslint/config",
   "type": "module",
   "version": "3.0.0",
   "description": "Opinionated ESLint config for frontend developers.",

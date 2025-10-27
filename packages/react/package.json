@@ -2,7 +2,7 @@
   "name": "@hellolin-eslint/react-config",
   "type": "module",
   "version": "3.0.0",
-  "description": "React config for @hellolin/eslint-config",
+  "description": "React config for @hellolin-eslint/config",
   "author": "hellolin <i@hellolin.top>",
   "license": "MIT",
   "homepage": "https://github.com/VLTHellolin/eslint-config",

@@ -11,15 +11,15 @@ importers:
       '@commitlint/config-conventional':
         specifier: ^19.8.1
         version: 19.8.1
+      '@hellolin-eslint/config':
+        specifier: workspace:*
+        version: link:packages/config
       '@hellolin-eslint/node-config':
         specifier: workspace:*
         version: link:packages/node
       '@hellolin-eslint/react-config':
         specifier: workspace:*
         version: link:packages/react
-      '@hellolin/eslint-config':
-        specifier: workspace:*
-        version: link:packages/config
       '@swc/core':
         specifier: ^1.13.5
         version: 1.13.5
@@ -50,6 +50,15 @@ importers:
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
+
+  legacy/config:
+    dependencies:
+      '@hellolin-eslint/config':
+        specifier: workspace:*
+        version: link:../../packages/config
+      eslint:
+        specifier: '*'
+        version: 9.38.0(jiti@2.5.1)
 
   packages/config:
     dependencies:
