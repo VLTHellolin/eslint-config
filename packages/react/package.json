@@ -1,7 +1,7 @@
 {
   "name": "@hellolin-eslint/react-config",
   "type": "module",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "React config for @hellolin-eslint/config",
   "author": "hellolin <i@hellolin.top>",
   "license": "MIT",
