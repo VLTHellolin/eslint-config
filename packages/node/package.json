@@ -1,7 +1,7 @@
 {
   "name": "@hellolin-eslint/node-config",
   "type": "module",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Node config for @hellolin-eslint/config",
   "author": "hellolin <i@hellolin.top>",
   "license": "MIT",
