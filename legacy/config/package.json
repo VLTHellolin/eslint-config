@@ -23,7 +23,8 @@
   "module": "./index.js",
   "types": "./index.d.ts",
   "files": [
-    "dist"
+    "index.d.ts",
+    "index.js"
   ],
   "peerDependencies": {
     "eslint": "*"
