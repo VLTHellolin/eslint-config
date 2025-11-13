@@ -27,6 +27,7 @@ export interface ESLintConfigOptions {
   markdown?: boolean | MarkdownOptions;
   node?: boolean;
   react?: boolean | ReactOptions;
+  reactCompiler?: boolean;
   storybook?: boolean;
   unocss?: boolean | UnoCSSOptions;
 }
@@ -72,6 +73,10 @@ export const defineConfig = async (options: ESLintConfigOptions = {}): Promise<F
     configs.push(
       react(resolveOptions(options.react)),
     );
+  }
+  if (options.reactCompiler) {
+    const { reactCompiler } = await requirePackage('@hellolin-eslint/react-compiler-config') as typeof import('@hellolin-eslint/react-compiler-config');
+    configs.push(reactCompiler());
   }
   if (options.storybook) {
     const { storybook } = await requirePackage('@hellolin-eslint/storybook-config') as typeof import('@hellolin-eslint/storybook-config');

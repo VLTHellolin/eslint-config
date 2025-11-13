@@ -1,7 +1,6 @@
 import type { FlatConfigItem } from '@hellolin-eslint/shared';
 import pluginReact from '@eslint-react/eslint-plugin';
 import { GlobJSX, GlobSource, GlobTSX, memorize } from '@hellolin-eslint/shared';
-import pluginReactCompiler from 'eslint-plugin-react-compiler';
 import pluginReactHooks from 'eslint-plugin-react-hooks';
 import pluginReactRefresh from 'eslint-plugin-react-refresh';
 import globals from 'globals';
@@ -38,6 +37,7 @@ export interface ReactOptions {
   remix?: boolean;
   /**
    * Whether to enable `eslint-plugin-react-compiler`.
+   * @deprecated Use `reactCompiler` from `@hellolin-eslint/react-compiler` package instead.
    * @see https://github.com/facebook/react/tree/main/compiler/packages/eslint-plugin-react-compiler
    * @default true
    */
@@ -86,7 +86,6 @@ export const react = (options: ReactOptions = {}): FlatConfigItem[] => {
     additionalHooks = ['useIsomorphicLayoutEffect', 'useAbortableEffect'],
     next = detectNext(),
     remix = detectRemix(),
-    reactCompiler = true,
     reactFastRefresh = true,
   } = options;
 
@@ -113,12 +112,10 @@ export const react = (options: ReactOptions = {}): FlatConfigItem[] => {
       plugins: {
         ...memorizedReactPluginList as any,
         'react-hooks': pluginReactHooks,
-        'react-compiler': pluginReactCompiler,
         'react-refresh': pluginReactRefresh,
       },
       /// keep-sorted
       rules: {
-        'react-compiler/react-compiler': reactCompiler ? (reactCompiler === true ? 'error' : reactCompiler) : 'off',
         'react-dom/no-dangerously-set-innerhtml-with-children': 'error',
         'react-dom/no-dangerously-set-innerhtml': 'warn',
         'react-dom/no-find-dom-node': 'error',
@@ -143,23 +140,6 @@ export const react = (options: ReactOptions = {}): FlatConfigItem[] => {
           },
         ],
         'react-hooks/rules-of-hooks': 'error',
-        ...reactCompiler && {
-          'react-hooks/config': 'error',
-          'react-hooks/error-boundaries': 'error',
-          'react-hooks/component-hook-factories': 'error',
-          'react-hooks/gating': 'error',
-          'react-hooks/globals': 'error',
-          'react-hooks/immutability': 'error',
-          'react-hooks/preserve-manual-memoization': 'error',
-          'react-hooks/purity': 'error',
-          'react-hooks/refs': 'error',
-          'react-hooks/set-state-in-effect': 'error',
-          'react-hooks/set-state-in-render': 'error',
-          'react-hooks/static-components': 'error',
-          'react-hooks/unsupported-syntax': 'warn',
-          'react-hooks/use-memo': 'error',
-          'react-hooks/incompatible-library': 'warn',
-        },
         'react-naming-convention/component-name': 'warn',
         'react-naming-convention/context-name': 'warn',
         'react-naming-convention/use-state': 'warn',

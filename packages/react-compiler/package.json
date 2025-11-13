@@ -1,0 +1,34 @@
+{
+  "name": "@hellolin-eslint/react-compiler-config",
+  "type": "module",
+  "version": "3.0.2",
+  "description": "React Compiler config for @hellolin-eslint/config",
+  "author": "hellolin <i@hellolin.top>",
+  "license": "MIT",
+  "homepage": "https://github.com/VLTHellolin/eslint-config",
+  "repository": {
+    "url": "https://github.com/VLTHellolin/eslint-config",
+    "directory": "packages/react-compiler"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "dependencies": {
+    "@hellolin-eslint/shared": "workspace:*",
+    "eslint-plugin-react-compiler": "19.1.0-rc.2"
+  },
+  "devDependencies": {
+    "@hellolin-eslint/rollup-config": "workspace:*"
+  }
+}

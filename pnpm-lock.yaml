@@ -17,6 +17,9 @@ importers:
       '@hellolin-eslint/node-config':
         specifier: workspace:*
         version: link:packages/node
+      '@hellolin-eslint/react-compiler-config':
+        specifier: workspace:*
+        version: link:packages/react-compiler
       '@hellolin-eslint/react-config':
         specifier: workspace:*
         version: link:packages/react
@@ -114,6 +117,9 @@ importers:
       '@hellolin-eslint/node-config':
         specifier: workspace:*
         version: link:../node
+      '@hellolin-eslint/react-compiler-config':
+        specifier: workspace:*
+        version: link:../react-compiler
       '@hellolin-eslint/react-config':
         specifier: workspace:*
         version: link:../react
@@ -182,6 +188,19 @@ importers:
       local-pkg:
         specifier: ^1.1.2
         version: 1.1.2
+    devDependencies:
+      '@hellolin-eslint/rollup-config':
+        specifier: workspace:*
+        version: link:../rollup-config
+
+  packages/react-compiler:
+    dependencies:
+      '@hellolin-eslint/shared':
+        specifier: workspace:*
+        version: link:../shared
+      eslint-plugin-react-compiler:
+        specifier: 19.1.0-rc.2
+        version: 19.1.0-rc.2(eslint@9.38.0(jiti@2.5.1))
     devDependencies:
       '@hellolin-eslint/rollup-config':
         specifier: workspace:*
