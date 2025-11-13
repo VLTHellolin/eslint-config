@@ -113,12 +113,6 @@ export const typescript = (options: TypeScriptOptions = {}): FlatConfigItem[] =>
       ],
       /// keep-sorted
       rules: {
-        'ts/consistent-type-definitions': 'error',
-        'ts/consistent-type-imports': ['error', {
-          disallowTypeAnnotations: false,
-          fixStyle: 'separate-type-imports',
-          prefer: 'type-imports',
-        }],
         'style/member-delimiter-style': 'error',
         'style/type-annotation-spacing': ['error', {
           before: false,
@@ -126,6 +120,12 @@ export const typescript = (options: TypeScriptOptions = {}): FlatConfigItem[] =>
           overrides: {
             arrow: { before: true, after: true },
           },
+        }],
+        'ts/consistent-type-definitions': 'error',
+        'ts/consistent-type-imports': ['error', {
+          disallowTypeAnnotations: false,
+          fixStyle: 'separate-type-imports',
+          prefer: 'type-imports',
         }],
       },
     },
