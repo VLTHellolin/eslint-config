@@ -3,7 +3,7 @@
   "type": "module",
   "version": "3.0.2",
   "private": true,
-  "packageManager": "pnpm@10.19.0",
+  "packageManager": "pnpm@10.22.0",
   "scripts": {
     "prepare": "husky",
     "build": "turbo build",
@@ -17,15 +17,15 @@
     "@hellolin-eslint/node-config": "workspace:*",
     "@hellolin-eslint/react-compiler-config": "workspace:*",
     "@hellolin-eslint/react-config": "workspace:*",
-    "@swc/core": "^1.13.5",
-    "@types/node": "^22.18.12",
+    "@swc/core": "^1.15.1",
+    "@types/node": "^22.19.1",
     "bumpp": "^10.3.1",
     "commitlint": "^19.8.1",
-    "eslint": "^9.38.0",
+    "eslint": "^9.39.1",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.6",
-    "rollup": "^4.52.5",
-    "turbo": "^2.5.8",
+    "rollup": "^4.53.2",
+    "turbo": "^2.6.1",
     "typescript": "^5.9.3"
   }
 }
