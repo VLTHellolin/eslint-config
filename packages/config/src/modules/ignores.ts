@@ -1,5 +1,4 @@
 import type { FlatConfigItem } from '@hellolin-eslint/shared';
-import type { FlatGitignoreOptions } from 'eslint-config-flat-gitignore';
 import { GlobIgnores } from '@hellolin-eslint/shared';
 import gitignore from 'eslint-config-flat-gitignore';
 
@@ -7,18 +6,12 @@ export interface IgnoresOptions {
   /**
    * Custom files to ignore.
    */
-  customFiles?: string[];
-  /**
-   * Options passed to `eslint-config-flat-gitignore`.
-   * @see https://github.com/antfu/eslint-config-flat-gitignore
-   */
-  gitignoreOptions?: Omit<FlatGitignoreOptions, 'name'>;
+  files?: string[];
 }
 
 export const ignores = (options: IgnoresOptions = {}): FlatConfigItem[] => {
   const {
-    customFiles = [],
-    gitignoreOptions = {},
+    files = [],
   } = options;
 
   return [
@@ -26,13 +19,12 @@ export const ignores = (options: IgnoresOptions = {}): FlatConfigItem[] => {
       name: 'hellolin/ignores/base',
       ignores: [
         ...GlobIgnores,
-        ...customFiles,
+        ...files,
       ],
     },
     gitignore({
       name: 'hellolin/ignores/gitignore',
       strict: false,
-      ...gitignoreOptions,
     }),
   ];
 };
