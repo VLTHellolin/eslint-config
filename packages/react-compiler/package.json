@@ -22,13 +22,13 @@
     "dist"
   ],
   "scripts": {
-    "build": "rollup -c"
+    "build": "tsdown"
   },
   "dependencies": {
     "@hellolin-eslint/shared": "workspace:*",
     "eslint-plugin-react-compiler": "19.1.0-rc.2"
   },
   "devDependencies": {
-    "@hellolin-eslint/rollup-config": "workspace:*"
+    "tsdown": "catalog:"
   }
 }

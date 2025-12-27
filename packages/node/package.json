@@ -22,13 +22,13 @@
     "dist"
   ],
   "scripts": {
-    "build": "rollup -c"
+    "build": "tsdown"
   },
   "dependencies": {
     "@hellolin-eslint/shared": "workspace:*",
     "eslint-plugin-n": "^17.23.1"
   },
   "devDependencies": {
-    "@hellolin-eslint/rollup-config": "workspace:*"
+    "tsdown": "catalog:"
   }
 }

@@ -26,10 +26,10 @@
     "dist"
   ],
   "scripts": {
-    "build": "rollup -c"
+    "build": "tsdown"
   },
   "peerDependencies": {
-    "eslint": "*"
+    "eslint": ">=9"
   },
   "dependencies": {
     "@eslint/markdown": "^7.5.1",
@@ -53,9 +53,9 @@
     "@hellolin-eslint/node-config": "workspace:*",
     "@hellolin-eslint/react-compiler-config": "workspace:*",
     "@hellolin-eslint/react-config": "workspace:*",
-    "@hellolin-eslint/rollup-config": "workspace:*",
     "@hellolin-eslint/storybook-config": "workspace:*",
     "@hellolin-eslint/unocss-config": "workspace:*",
-    "eslint": "^9.39.1"
+    "eslint": "catalog:",
+    "tsdown": "catalog:"
   }
 }
