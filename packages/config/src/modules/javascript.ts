@@ -3,30 +3,23 @@ import { memorize } from '@hellolin-eslint/shared';
 import pluginStylistic from '@stylistic/eslint-plugin';
 import pluginPerfectionist from 'eslint-plugin-perfectionist';
 import * as pluginRegExp from 'eslint-plugin-regexp';
+import pluginUnicorn from 'eslint-plugin-unicorn';
 import globals from 'globals';
 
 export interface JavaScriptOptions {
-  /**
-   * @default 'module'
-   */
-  sourceType?: 'module' | 'commonjs';
-  /**
-   * List of allowed `console` commands.
-   * You will be able to use commands in this list without getting an error from ESLint.
-   * @default ['warn', 'error']
-   */
-  allowConsoleCommands?: ('log' | 'info' | 'warn' | 'error')[];
   env?: {
     browser?: boolean;
     node?: boolean;
+    webWorker?: boolean;
+    serviceWorker?: boolean;
     greaseMonkey?: boolean;
+    webExtensions?: boolean;
+    customGlobals?: Record<string, boolean | 'off' | 'readonly' | 'readable' | 'writable' | 'writeable'>;
   };
 }
 
 export const javascript = (options: JavaScriptOptions = {}): FlatConfigItem[] => {
   const {
-    sourceType = 'module',
-    allowConsoleCommands = ['warn', 'error'],
     env = {},
   } = options;
 
@@ -34,22 +27,21 @@ export const javascript = (options: JavaScriptOptions = {}): FlatConfigItem[] =>
     {
       name: 'hellolin/javascript/base',
       languageOptions: {
-        ecmaVersion: 2025,
+        ecmaVersion: 'latest',
         globals: {
-          ...globals.es2025,
+          ...globals.es2026,
           ...(env.browser && globals.browser),
           ...(env.node && globals.node),
+          ...(env.webWorker && globals.worker),
+          ...(env.serviceWorker && globals.serviceworker),
           ...(env.greaseMonkey && globals.greasemonkey),
-          ...(env.browser && {
-            document: 'readonly',
-            navigator: 'readonly',
-            window: 'readonly',
-          }),
+          ...(env.webExtensions && globals.webextensions),
+          ...env.customGlobals,
         },
         parserOptions: {
-          ecmaVersion: 2025,
+          sourceType: 'module',
+          ecmaVersion: 'latest',
           ecmaFeatures: { jsx: true },
-          sourceType,
         },
       },
       linterOptions: {
@@ -57,157 +49,155 @@ export const javascript = (options: JavaScriptOptions = {}): FlatConfigItem[] =>
       },
       /// keep-sorted
       rules: {
-        'accessor-pairs': 'warn',
-        'array-callback-return': ['error', { allowImplicit: true }],
-        'constructor-super': 'error',
-        'default-case-last': 'error',
-        'dot-notation': 'warn',
-        'for-direction': 'error',
-        'getter-return': 'error',
+        'array-callback-return': 'error',
+        'dot-notation': ['error', { allowKeywords: true }],
+        'grouped-accessor-pairs': 'warn',
+        'guard-for-in': 'error',
         'no-alert': 'error',
-        'no-array-constructor': 'error',
-        'no-async-promise-executor': 'error',
+        'no-await-in-loop': 'warn',
         'no-caller': 'error',
-        'no-case-declarations': 'error',
-        'no-class-assign': 'error',
-        'no-compare-neg-zero': 'error',
-        'no-cond-assign': 'error',
-        'no-console': ['error', { allow: allowConsoleCommands }],
         'no-constant-binary-expression': 'error',
-        'no-constant-condition': 'error',
-        'no-control-regex': 'error',
-        'no-debugger': 'error',
-        'no-delete-var': 'error',
-        'no-dupe-args': 'error',
-        'no-dupe-class-members': 'error',
-        'no-dupe-else-if': 'error',
-        'no-dupe-keys': 'error',
-        'no-duplicate-case': 'error',
+        'no-constant-condition': ['error', { checkLoops: 'allExceptWhileTrue' }],
+        'no-constructor-return': 'error',
         'no-empty-pattern': 'error',
+        'no-empty-static-block': 'error',
         'no-empty': ['error', { allowEmptyCatch: true }],
-        'no-ex-assign': 'error',
+        'no-eval': 'error',
+        'no-extend-native': 'error',
         'no-extra-bind': 'error',
         'no-extra-boolean-cast': 'error',
         'no-fallthrough': 'error',
-        'no-func-assign': 'error',
         'no-global-assign': 'error',
         'no-implied-eval': 'error',
-        'no-import-assign': 'error',
-        'no-irregular-whitespace': 'error',
-        'no-iterator': 'error',
-        'no-labels': ['error', {
-          allowLoop: false,
-          allowSwitch: false,
-        }],
+        'no-labels': 'error',
         'no-lone-blocks': 'error',
-        'no-lonely-if': 'error',
+        'no-loop-func': 'error',
         'no-loss-of-precision': 'error',
-        'no-misleading-character-class': 'error',
-        'no-new-native-nonconstructor': 'error',
-        'no-obj-calls': 'error',
+        'no-multi-assign': 'error',
+        'no-multi-str': 'error',
+        'no-new-func': 'error',
+        'no-new-wrappers': 'error',
+        'no-new': 'error',
+        'no-nonoctal-decimal-escape': 'warn',
+        'no-object-constructor': 'error',
+        'no-octal-escape': 'error',
+        'no-promise-executor-return': 'error',
         'no-prototype-builtins': 'error',
-        'no-redeclare': ['error', { builtinGlobals: false }],
-        'no-regex-spaces': 'error',
-        'no-restricted-globals': [
-          'error',
-          {
-            message: 'Use `globalThis` instead.',
-            name: 'global',
-          },
-          {
-            message: 'Use `globalThis` instead.',
-            name: 'self',
-          },
-        ],
         'no-restricted-properties': [
           'error',
           {
-            message: 'Use `Object.getPrototypeOf` or `Object.setPrototypeOf` instead.',
             property: '__proto__',
+            message: 'Use `Object.getPrototypeOf` or `Object.setPrototypeOf` instead.',
           },
           {
-            message: 'Use `Object.defineProperty` instead.',
             property: '__defineGetter__',
-          },
-          {
             message: 'Use `Object.defineProperty` instead.',
+          },
+          {
             property: '__defineSetter__',
+            message: 'Use `Object.defineProperty` instead.',
           },
           {
-            message: 'Use `Object.getOwnPropertyDescriptor` instead.',
             property: '__lookupGetter__',
+            message: 'Use `Object.getOwnPropertyDescriptor` instead.',
           },
           {
-            message: 'Use `Object.getOwnPropertyDescriptor` instead.',
             property: '__lookupSetter__',
+            message: 'Use `Object.getOwnPropertyDescriptor` instead.',
           },
         ],
-        'no-restricted-syntax': [
-          'error',
-          'TSEnumDeclaration[const=true]',
-          'TSExportAssignment',
-        ],
-        'no-self-assign': 'error',
-        'no-self-compare': 'error',
-        'no-sequences': 'error',
-        'no-setter-return': 'error',
+        'no-return-assign': 'error',
         'no-shadow-restricted-names': 'error',
-        'no-sparse-arrays': 'warn',
-        'no-template-curly-in-string': 'error',
-        'no-this-before-super': 'error',
-        'no-undef': 'error',
-        'no-unexpected-multiline': 'error',
-        'no-unmodified-loop-condition': 'error',
+        'no-unassigned-vars': 'error',
         'no-unreachable-loop': 'error',
         'no-unreachable': 'error',
-        'no-unsafe-finally': 'error',
-        'no-unsafe-negation': 'error',
-        'no-unused-vars': 'error',
-        'no-use-before-define': 'error',
         'no-useless-call': 'error',
-        'no-useless-catch': 'error',
-        'no-useless-computed-key': 'error',
-        'no-useless-constructor': 'error',
-        'no-useless-rename': 'error',
-        'no-useless-return': 'error',
+        'no-useless-escape': 'error',
+        'no-useless-return': 'warn',
         'no-var': 'error',
         'no-with': 'error',
-        'object-shorthand': [
-          'error',
-          'always',
-          {
-            avoidQuotes: true,
-            ignoreConstructors: false,
-          },
-        ],
-        'one-var': ['error', { initialized: 'never' }],
-        'prefer-arrow-callback': [
-          'error',
-          {
-            allowNamedFunctions: false,
-            allowUnboundThis: true,
-          },
-        ],
-        'prefer-const': [
-          'error',
-          {
-            destructuring: 'all',
-            ignoreReadBeforeAssign: true,
-          },
-        ],
+        'object-shorthand': ['error', 'always', { avoidQuotes: true, ignoreConstructors: false }],
+        'prefer-const': ['error', { ignoreReadBeforeAssign: true }],
         'prefer-exponentiation-operator': 'error',
-        'prefer-promise-reject-errors': 'error',
-        'prefer-regex-literals': 'error',
         'prefer-rest-params': 'error',
         'prefer-spread': 'error',
         'prefer-template': 'error',
         'symbol-description': 'error',
         'unicode-bom': ['error', 'never'],
-        'use-isnan': 'error',
-        'valid-typeof': ['error', { requireStringLiterals: true }],
-        'vars-on-top': 'error',
-        eqeqeq: ['error', 'smart'],
+        eqeqeq: ['error', 'always', { null: 'ignore' }],
         yoda: ['error', 'never'],
+      },
+    },
+    {
+      name: 'hellolin/javascript/extra',
+      plugins: {
+        unicorn: memorize(pluginUnicorn, 'eslint-plugin-unicorn'),
+      },
+      /// keep-sorted
+      rules: {
+        'unicorn/consistent-assert': 'error',
+        'unicorn/consistent-function-scoping': 'error',
+        'unicorn/custom-error-definition': 'error',
+        'unicorn/error-message': 'warn',
+        'unicorn/escape-case': ['error', 'uppercase'],
+        'unicorn/new-for-builtins': 'warn',
+        'unicorn/no-accessor-recursion': 'error',
+        'unicorn/no-array-for-each': 'error',
+        'unicorn/no-array-method-this-argument': 'error',
+        'unicorn/no-await-expression-member': 'error',
+        'unicorn/no-await-in-promise-methods': 'error',
+        'unicorn/no-console-spaces': 'warn',
+        'unicorn/no-document-cookie': 'error',
+        'unicorn/no-for-loop': 'warn',
+        'unicorn/no-hex-escape': 'error',
+        'unicorn/no-instanceof-builtin': ['error', { strategy: 'loose' }],
+        'unicorn/no-invalid-fetch-options': 'error',
+        'unicorn/no-invalid-remove-event-listener': 'error',
+        'unicorn/no-named-default': 'error',
+        'unicorn/no-negated-condition': 'warn',
+        'unicorn/no-negation-in-equality-check': 'warn',
+        'unicorn/no-new-array': 'warn',
+        'unicorn/no-new-buffer': 'error',
+        'unicorn/no-object-as-default-parameter': 'warn',
+        'unicorn/no-thenable': 'warn',
+        'unicorn/no-this-assignment': 'error',
+        'unicorn/no-unnecessary-await': 'error',
+        'unicorn/no-unreadable-array-destructuring': 'warn',
+        'unicorn/no-unreadable-iife': 'warn',
+        'unicorn/no-useless-error-capture-stack-trace': 'error',
+        'unicorn/no-useless-fallback-in-spread': 'warn',
+        'unicorn/no-useless-promise-resolve-reject': 'error',
+        'unicorn/number-literal-case': ['error', { hexadecimalValue: 'lowercase' }],
+        'unicorn/prefer-array-index-of': 'error',
+        'unicorn/prefer-class-fields': 'warn',
+        'unicorn/prefer-date-now': 'error',
+        'unicorn/prefer-dom-node-append': 'error',
+        'unicorn/prefer-dom-node-dataset': 'error',
+        'unicorn/prefer-dom-node-remove': 'error',
+        'unicorn/prefer-dom-node-text-content': 'error',
+        'unicorn/prefer-event-target': 'error',
+        'unicorn/prefer-global-this': 'error',
+        'unicorn/prefer-import-meta-properties': 'error',
+        'unicorn/prefer-keyboard-event-key': 'warn',
+        'unicorn/prefer-logical-operator-over-ternary': 'error',
+        'unicorn/prefer-math-trunc': 'error',
+        'unicorn/prefer-modern-dom-apis': 'error',
+        'unicorn/prefer-modern-math-apis': 'error',
+        'unicorn/prefer-negative-index': 'warn',
+        'unicorn/prefer-node-protocol': 'warn',
+        'unicorn/prefer-number-properties': 'error',
+        'unicorn/prefer-prototype-methods': 'warn',
+        'unicorn/prefer-query-selector': 'warn',
+        'unicorn/prefer-reflect-apply': 'error',
+        'unicorn/prefer-regexp-test': 'error',
+        'unicorn/prefer-response-static-json': 'error',
+        'unicorn/prefer-set-has': 'warn',
+        'unicorn/prefer-set-size': 'error',
+        'unicorn/prefer-string-replace-all': 'warn',
+        'unicorn/prefer-string-slice': 'error',
+        'unicorn/prefer-string-starts-ends-with': 'error',
+        'unicorn/prefer-string-trim-start-end': 'warn',
+        'unicorn/throw-new-error': 'error',
       },
     },
     {

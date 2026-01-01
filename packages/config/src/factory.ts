@@ -2,6 +2,7 @@ import type { ReactOptions } from '@hellolin-eslint/react-config';
 import type { FlatConfigItem } from '@hellolin-eslint/shared';
 import type { UnoCSSOptions } from '@hellolin-eslint/unocss-config';
 import type { IgnoresOptions } from './modules/ignores';
+import type { JavaScriptOptions } from './modules/javascript';
 import type { MarkdownOptions } from './modules/markdown';
 import type { TypeScriptOptions } from './modules/typescript';
 import { requirePackage } from '@hellolin-eslint/shared';
@@ -16,14 +17,13 @@ import { yaml } from './modules/yaml';
 
 export interface ESLintConfigOptions {
   /**
-   * Preset configuration to use. This applies to all plugins.
-   * @default 'standard'
+   * Environment settings.
    */
-  preset?: 'fast' | 'standard' | 'strict' | 'all';
+  env?: JavaScriptOptions['env'];
   /**
    * Custom configuration items to include.
    */
-  userConfig?: FlatConfigItem[];
+  customConfig?: FlatConfigItem[];
   ignores?: IgnoresOptions;
   typescript?: boolean | TypeScriptOptions;
   markdown?: boolean | MarkdownOptions;
@@ -39,8 +39,7 @@ const resolveSubOptions = <T>(options: true | T): T =>
 
 export const defineConfig = async (options: ESLintConfigOptions = {}): Promise<FlatConfigItem[]> => {
   const {
-    preset = 'standard',
-    userConfig = [],
+    customConfig = [],
     ignores: ignoresOptions = {},
     typescript: typescriptOptions = true,
     markdown: markdownOptions = true,
@@ -97,5 +96,5 @@ export const defineConfig = async (options: ESLintConfigOptions = {}): Promise<F
     config.push(unocss(resolveSubOptions(unocssOptions)));
   }
 
-  return [...config.flat(), ...userConfig];
+  return [...config.flat(), ...customConfig];
 };
