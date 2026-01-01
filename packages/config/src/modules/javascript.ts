@@ -1,4 +1,5 @@
 import type { FlatConfigItem } from '@hellolin-eslint/shared';
+import pluginHellolin from '@hellolin-eslint/plugin';
 import { memorize } from '@hellolin-eslint/shared';
 import pluginStylistic from '@stylistic/eslint-plugin';
 import pluginPerfectionist from 'eslint-plugin-perfectionist';
@@ -131,10 +132,12 @@ export const javascript = (options: JavaScriptOptions = {}): FlatConfigItem[] =>
     {
       name: 'hellolin/javascript/extra',
       plugins: {
+        hellolin: memorize(pluginHellolin, '@hellolin-eslint/plugin'),
         unicorn: memorize(pluginUnicorn, 'eslint-plugin-unicorn'),
       },
       /// keep-sorted
       rules: {
+        'hellolin/top-level-arrow-function': 'warn',
         'unicorn/consistent-assert': 'error',
         'unicorn/consistent-function-scoping': 'error',
         'unicorn/custom-error-definition': 'error',
@@ -150,7 +153,7 @@ export const javascript = (options: JavaScriptOptions = {}): FlatConfigItem[] =>
         'unicorn/no-document-cookie': 'error',
         'unicorn/no-for-loop': 'warn',
         'unicorn/no-hex-escape': 'error',
-        'unicorn/no-instanceof-builtin': ['error', { strategy: 'loose' }],
+        'unicorn/no-instanceof-builtins': ['error', { strategy: 'loose' }],
         'unicorn/no-invalid-fetch-options': 'error',
         'unicorn/no-invalid-remove-event-listener': 'error',
         'unicorn/no-named-default': 'error',

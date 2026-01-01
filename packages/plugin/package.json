@@ -27,11 +27,12 @@
   "peerDependencies": {
     "eslint": ">=9"
   },
-  "dependencies": {
-    "@hellolin-eslint/shared": "workspace:*"
-  },
   "devDependencies": {
+    "@typescript-eslint/parser": "^8.46.4",
+    "@typescript-eslint/utils": "^8.46.4",
     "eslint": "catalog:",
-    "tsdown": "catalog:"
+    "eslint-vitest-rule-tester": "^3.0.1",
+    "tsdown": "catalog:",
+    "vitest": "catalog:"
   }
 }

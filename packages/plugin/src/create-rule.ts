@@ -19,12 +19,11 @@ export interface CustomRule<
 
 export type ExportedCustomRule = Rule.RuleModule;
 
-const baseDocsUrl = 'https://eslint.hellolin.top/rules/'; // TODO: Build docs site
 export const addDocsUrl = <T extends Metadata>(name: string, meta: T): T => ({
   ...meta,
   docs: {
     ...meta.docs,
-    url: `${baseDocsUrl}${name}/`,
+    url: `https://github.com/VLTHellolin/eslint-config/blob/main/packages/plugin/src/rules/${name}/docs.md`,
   },
 });
 
@@ -42,8 +41,8 @@ export const createRule = <
     context: Readonly<TSESLint.RuleContext<MessageIds, Options[]>>,
   ) => {
     const options = context.options.map(current => ({
-      ...defaultOptions || {},
-      ...current || {},
+      ...defaultOptions,
+      ...current,
     })) as Options;
     return create(context, options);
   }) as any,

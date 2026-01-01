@@ -1,5 +1,4 @@
 declare global {
-  // eslint-disable-next-line
   var __ESLINT_PLUGINS_MEMO__: Record<string, unknown> | undefined;
 }
 

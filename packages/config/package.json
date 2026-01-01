@@ -51,6 +51,7 @@
   },
   "devDependencies": {
     "@hellolin-eslint/node-config": "workspace:*",
+    "@hellolin-eslint/plugin": "workspace:*",
     "@hellolin-eslint/react-compiler-config": "workspace:*",
     "@hellolin-eslint/react-config": "workspace:*",
     "@hellolin-eslint/storybook-config": "workspace:*",
