@@ -30,7 +30,7 @@
     "local-pkg": "^1.1.2"
   },
   "devDependencies": {
-    "@typescript-eslint/utils": "^8.46.4",
+    "@typescript-eslint/utils": "^8.51.0",
     "eslint": "catalog:",
     "tsdown": "catalog:"
   }

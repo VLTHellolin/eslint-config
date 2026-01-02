@@ -28,8 +28,8 @@
     "eslint": ">=9"
   },
   "devDependencies": {
-    "@typescript-eslint/parser": "^8.46.4",
-    "@typescript-eslint/utils": "^8.46.4",
+    "@typescript-eslint/parser": "^8.51.0",
+    "@typescript-eslint/utils": "^8.51.0",
     "eslint": "catalog:",
     "eslint-vitest-rule-tester": "^3.0.1",
     "tsdown": "catalog:",
