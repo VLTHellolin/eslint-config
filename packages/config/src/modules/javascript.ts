@@ -51,6 +51,7 @@ export const javascript = (options: JavaScriptOptions = {}): FlatConfigItem[] =>
       /// keep-sorted
       rules: {
         'array-callback-return': 'error',
+        'default-param-last': 'error',
         'dot-notation': ['error', { allowKeywords: true }],
         'grouped-accessor-pairs': 'warn',
         'guard-for-in': 'error',
@@ -109,6 +110,7 @@ export const javascript = (options: JavaScriptOptions = {}): FlatConfigItem[] =>
         ],
         'no-return-assign': 'error',
         'no-shadow-restricted-names': 'error',
+        'no-throw-literal': 'error',
         'no-unassigned-vars': 'error',
         'no-unreachable-loop': 'error',
         'no-unreachable': 'error',
@@ -120,6 +122,7 @@ export const javascript = (options: JavaScriptOptions = {}): FlatConfigItem[] =>
         'object-shorthand': ['error', 'always', { avoidQuotes: true, ignoreConstructors: false }],
         'prefer-const': ['error', { ignoreReadBeforeAssign: true }],
         'prefer-exponentiation-operator': 'error',
+        'prefer-promise-reject-errors': 'error',
         'prefer-rest-params': 'error',
         'prefer-spread': 'error',
         'prefer-template': 'error',
