@@ -1,6 +1,7 @@
 import type { FlatConfigItem } from '@hellolin-eslint/shared';
 import pluginReact from '@eslint-react/eslint-plugin';
 import { GlobJSX, GlobSource, GlobTSX, memorize } from '@hellolin-eslint/shared';
+import pluginJsxA11y from 'eslint-plugin-jsx-a11y';
 import pluginReactHooks from 'eslint-plugin-react-hooks';
 import pluginReactRefresh from 'eslint-plugin-react-refresh';
 import globals from 'globals';
@@ -235,6 +236,40 @@ export const react = (options: ReactOptions = {}): FlatConfigItem[] => {
         'react/no-use-context': 'warn',
         'react/no-useless-fragment': 'warn',
         'react/prefer-use-state-lazy-initialization': 'error',
+      },
+    },
+    {
+      name: 'hellolin/react/a11y',
+      files,
+      plugins: {
+        'jsx-a11y': pluginJsxA11y,
+      },
+      /// keep-sorted
+      rules: {
+        'jsx-a11y/alt-text': [
+          'warn',
+          {
+            elements: ['img'],
+            img: ['Image'],
+          },
+        ],
+        'jsx-a11y/anchor-is-valid': 'warn',
+        'jsx-a11y/aria-props': 'warn',
+        'jsx-a11y/aria-proptypes': 'warn',
+        'jsx-a11y/aria-role': 'warn',
+        'jsx-a11y/aria-unsupported-elements': 'warn',
+        'jsx-a11y/autocomplete-valid': 'warn',
+        'jsx-a11y/iframe-has-title': 'warn',
+        'jsx-a11y/interactive-supports-focus': 'warn',
+        'jsx-a11y/label-has-associated-control': 'warn',
+        'jsx-a11y/no-access-key': 'error',
+        'jsx-a11y/no-autofocus': 'warn',
+        'jsx-a11y/no-distracting-elements': 'error',
+        'jsx-a11y/no-noninteractive-element-interactions': 'warn',
+        'jsx-a11y/no-noninteractive-tabindex': 'warn',
+        'jsx-a11y/role-has-required-aria-props': 'warn',
+        'jsx-a11y/role-supports-aria-props': 'warn',
+        'jsx-a11y/tabindex-no-positive': 'error',
       },
     },
   ];
