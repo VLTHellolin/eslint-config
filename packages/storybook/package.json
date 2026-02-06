@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@hellolin-eslint/shared": "workspace:*",
-    "eslint-plugin-storybook": "^9.1.17"
+    "eslint-plugin-storybook": "^10.2.7"
   },
   "devDependencies": {
     "tsdown": "catalog:"
