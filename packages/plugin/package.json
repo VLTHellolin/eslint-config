@@ -27,9 +27,11 @@
   "peerDependencies": {
     "eslint": ">=9"
   },
-  "devDependencies": {
+  "dependencies": {
     "@typescript-eslint/parser": "^8.51.0",
-    "@typescript-eslint/utils": "^8.51.0",
+    "@typescript-eslint/utils": "^8.51.0"
+  },
+  "devDependencies": {
     "eslint": "catalog:",
     "eslint-vitest-rule-tester": "^3.0.1",
     "tsdown": "catalog:",
