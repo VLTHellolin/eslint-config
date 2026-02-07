@@ -15,9 +15,6 @@
   "devDependencies": {
     "@commitlint/config-conventional": "^20.3.0",
     "@hellolin-eslint/config": "workspace:*",
-    "@hellolin-eslint/node-config": "workspace:*",
-    "@hellolin-eslint/react-compiler-config": "workspace:*",
-    "@hellolin-eslint/react-config": "workspace:*",
     "@swc/core": "^1.15.8",
     "@types/node": "^22.19.3",
     "bumpp": "^10.3.2",

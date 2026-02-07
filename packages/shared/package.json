@@ -27,6 +27,7 @@
   "dependencies": {
     "@antfu/install-pkg": "^1.1.0",
     "@clack/prompts": "^0.11.0",
+    "find-up-simple": "^1.0.1",
     "local-pkg": "^1.1.2"
   },
   "devDependencies": {

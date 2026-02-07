@@ -6,6 +6,7 @@ import type { JavaScriptOptions } from './modules/javascript';
 import type { MarkdownOptions } from './modules/markdown';
 import type { PnpmOptions } from './modules/pnpm';
 import type { TypeScriptOptions } from './modules/typescript';
+import { detectNode, detectPnpm } from '@hellolin-eslint/shared';
 import { requirePackage } from '@hellolin-eslint/shared';
 import { commands } from './modules/commands';
 import { ignores } from './modules/ignores';
@@ -13,11 +14,19 @@ import { imports } from './modules/imports';
 import { javascript } from './modules/javascript';
 import { json } from './modules/json';
 import { markdown } from './modules/markdown';
+import { node } from './modules/node';
 import { pnpm } from './modules/pnpm';
 import { typescript } from './modules/typescript';
 import { yaml } from './modules/yaml';
 
 export interface ESLintConfigOptions {
+  /**
+   * Whether to enable auto-detect features for modules like `typescript`, `node` and `pnpm`.
+   *
+   * If enabled, the configuration will automatically apply when the corresponding environment is detected.
+   * @default true
+   */
+  autoDetect?: boolean;
   /**
    * Environment settings.
    */
@@ -42,12 +51,14 @@ const resolveSubOptions = <T>(options: true | T): T =>
 
 export const defineConfig = async (options: ESLintConfigOptions = {}): Promise<FlatConfigItem[]> => {
   const {
+    autoDetect = true,
+    env,
     customConfig = [],
     ignores: ignoresOptions = {},
     typescript: typescriptOptions = true,
-    pnpm: pnpmOptions = false,
+    pnpm: pnpmOptions = autoDetect ? detectPnpm() : false,
     markdown: markdownOptions = true,
-    node: nodeOptions = false,
+    node: nodeOptions = autoDetect ? detectNode() : false,
     react: reactOptions = false,
     reactCompiler: reactCompilerOptions = false,
     storybook: storybookOptions = false,
@@ -58,7 +69,7 @@ export const defineConfig = async (options: ESLintConfigOptions = {}): Promise<F
 
   config.push(
     ignores(ignoresOptions),
-    javascript(),
+    javascript({ env }),
     commands(),
     imports(),
     json(),
@@ -84,7 +95,6 @@ export const defineConfig = async (options: ESLintConfigOptions = {}): Promise<F
   }
 
   if (nodeOptions) {
-    const { node } = await requirePackage('@hellolin-eslint/node-config');
     config.push(node());
   }
   if (reactOptions) {
