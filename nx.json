@@ -12,13 +12,5 @@
       "inputs": ["production", "^production"],
       "outputs": ["{projectRoot}/dist/**"]
     }
-  },
-  "plugins": [
-    {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "lint"
-      }
-    }
-  ]
+  }
 }
