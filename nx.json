@@ -1,5 +1,6 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "nxCloudId": "698767c3a554a970c7d8db46",
   "namedInputs": {
     "default": ["{projectRoot}/src/**/*"],
     "production": ["default", "!{projectRoot}/src/**/*.test.{ts,tsx,js,jsx}"]
