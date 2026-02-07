@@ -2,6 +2,7 @@ import type { ReactOptions } from '@hellolin-eslint/react-config';
 import type { FlatConfigItem } from '@hellolin-eslint/shared';
 import type { UnoCSSOptions } from '@hellolin-eslint/unocss-config';
 import type { IgnoresOptions } from './modules/ignores';
+import type { ImportsOptions } from './modules/imports';
 import type { JavaScriptOptions } from './modules/javascript';
 import type { MarkdownOptions } from './modules/markdown';
 import type { PnpmOptions } from './modules/pnpm';
@@ -21,7 +22,7 @@ import { yaml } from './modules/yaml';
 
 export interface ESLintConfigOptions {
   /**
-   * Whether to enable auto-detect features for modules like `typescript`, `node` and `pnpm`.
+   * Whether to enable auto-detect features for modules like `node` and `pnpm`.
    *
    * If enabled, the configuration will automatically apply when the corresponding environment is detected.
    * @default true
@@ -37,6 +38,7 @@ export interface ESLintConfigOptions {
   customConfig?: FlatConfigItem[];
   ignores?: IgnoresOptions;
   typescript?: boolean | TypeScriptOptions;
+  imports?: ImportsOptions;
   pnpm?: boolean | PnpmOptions;
   markdown?: boolean | MarkdownOptions;
   node?: boolean;
@@ -56,6 +58,7 @@ export const defineConfig = async (options: ESLintConfigOptions = {}): Promise<F
     customConfig = [],
     ignores: ignoresOptions = {},
     typescript: typescriptOptions = true,
+    imports: importsOptions = {},
     pnpm: pnpmOptions = autoDetect ? detectPnpm() : false,
     markdown: markdownOptions = true,
     node: nodeOptions = autoDetect ? detectNode() : false,
@@ -71,7 +74,7 @@ export const defineConfig = async (options: ESLintConfigOptions = {}): Promise<F
     ignores(ignoresOptions),
     javascript({ env }),
     commands(),
-    imports(),
+    imports(importsOptions),
     json(),
     yaml(),
   );
