@@ -8,5 +8,6 @@ export default defineConfig({
   format: ['esm'],
   minify: false,
   external: ['eslint'],
+  inlineOnly: [],
   fixedExtension: false,
 });
