@@ -4,4 +4,5 @@ dist
 .npm
 .temp
 .turbo
+.nx
 .eslintcache

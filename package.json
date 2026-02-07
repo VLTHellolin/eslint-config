@@ -6,23 +6,22 @@
   "packageManager": "pnpm@10.27.0",
   "scripts": {
     "prepare": "husky",
-    "build": "turbo build",
     "test": "vitest",
-    "lint": "eslint --cache --fix .",
+    "build": "nx run-many -t build",
+    "lint": "nx run-many -t lint",
     "commitlint": "commitlint --edit",
     "release": "bumpp -r"
   },
   "devDependencies": {
-    "@commitlint/config-conventional": "^20.3.0",
+    "@commitlint/config-conventional": "^20.4.1",
     "@hellolin-eslint/config": "workspace:*",
-    "@swc/core": "^1.15.8",
-    "@types/node": "^22.19.3",
-    "bumpp": "^10.3.2",
-    "commitlint": "^20.3.0",
+    "@nx/eslint": "^22.4.5",
+    "bumpp": "^10.4.1",
+    "commitlint": "^20.4.1",
     "eslint": "catalog:",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
-    "turbo": "^2.7.2",
+    "nx": "^22.4.5",
     "typescript": "^5.9.3",
     "vitest": "catalog:"
   }
