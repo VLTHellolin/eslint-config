@@ -4,6 +4,7 @@ import type { UnoCSSOptions } from '@hellolin-eslint/unocss-config';
 import type { IgnoresOptions } from './modules/ignores';
 import type { JavaScriptOptions } from './modules/javascript';
 import type { MarkdownOptions } from './modules/markdown';
+import type { PnpmOptions } from './modules/pnpm';
 import type { TypeScriptOptions } from './modules/typescript';
 import { requirePackage } from '@hellolin-eslint/shared';
 import { commands } from './modules/commands';
@@ -12,6 +13,7 @@ import { imports } from './modules/imports';
 import { javascript } from './modules/javascript';
 import { json } from './modules/json';
 import { markdown } from './modules/markdown';
+import { pnpm } from './modules/pnpm';
 import { typescript } from './modules/typescript';
 import { yaml } from './modules/yaml';
 
@@ -26,6 +28,7 @@ export interface ESLintConfigOptions {
   customConfig?: FlatConfigItem[];
   ignores?: IgnoresOptions;
   typescript?: boolean | TypeScriptOptions;
+  pnpm?: boolean | PnpmOptions;
   markdown?: boolean | MarkdownOptions;
   node?: boolean;
   react?: boolean | ReactOptions;
@@ -42,6 +45,7 @@ export const defineConfig = async (options: ESLintConfigOptions = {}): Promise<F
     customConfig = [],
     ignores: ignoresOptions = {},
     typescript: typescriptOptions = true,
+    pnpm: pnpmOptions = false,
     markdown: markdownOptions = true,
     node: nodeOptions = false,
     react: reactOptions = false,
@@ -64,6 +68,12 @@ export const defineConfig = async (options: ESLintConfigOptions = {}): Promise<F
   if (typescriptOptions) {
     config.push(
       typescript(resolveSubOptions(typescriptOptions)),
+    );
+  }
+
+  if (pnpmOptions) {
+    config.push(
+      pnpm(resolveSubOptions(pnpmOptions)),
     );
   }
 
