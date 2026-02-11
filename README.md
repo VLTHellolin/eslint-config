@@ -1,24 +1,23 @@
-# @hellolin-eslint/config
+# @hellolin-eslint/config 📐
 
 [![NPM Version](https://img.shields.io/npm/v/%40hellolin-eslint%2Fconfig?style=flat-square)](https://npmjs.com/package/@hellolin-eslint/config)
 [![GitHub Action](https://img.shields.io/github/actions/workflow/status/VLTHellolin/eslint-config/release.yaml?style=flat-square)](https://github.com/VLTHellolin/eslint-config/actions/workflows/release.yaml)
 
-Opinionated personal ESLint config for frontend developers.
+Opinionated ESLint config for frontend developers.
 
-- Compose with your config easily with the help of [ESLint flat config](https://eslint.org/docs/latest/use/configure/configuration-files).
-- [React](https://react.dev/), [Next.js](https://nextjs.org/), [UnoCSS](https://unocss.dev/) and [Storybook](https://storybook.js.org/) support by plugins.
-- Format your source code comfortably using [ESLint Stylistic](https://eslint.style/) and [eslint-plugin-format](https://github.com/antfu/eslint-plugin-format).
-- Best practices included, simple usage for everyone.
+- 1 line of code === a pack of powerful rules that applies best practices and uses beautiful styles.
+- Compose with your config easily using [ESLint flat config](https://eslint.org/docs/latest/use/configure/configuration-files).
+- Designed to work smoothly with TypeScript, Node.js, Markdown, JSON, YAML, etc.
+- Optionally load modules such as [React](https://react.dev/), [Next.js](https://nextjs.org/), [UnoCSS](https://unocss.dev/), [Storybook](https://storybook.js.org/), etc.
+- Format your source code comfortably using [ESLint Stylistic](https://eslint.style/).
 
 ## Usage
-
-To use the config, make sure you have installed ESLint first:
 
 ```shell
 pnpm install -D eslint @hellolin-eslint/config
 ```
 
-Create a `eslint.config.js` (or `.ts`) in your project root:
+In your `eslint.config.js` (or `.ts`):
 
 ```js
 import defineConfig from '@hellolin-eslint/config';
@@ -28,16 +27,15 @@ export default defineConfig();
 
 ## Customization
 
-You can pass your options to the `defineConfig` factory.
-
 ```js
 import defineConfig from '@hellolin-eslint/config';
 
 export default defineConfig({
+  autoDetect: true,
   javascript: {
-    sourceType: 'module',
     env: {
       browser: true,
+      webWorker: true,
     },
   },
   typescript: true,
@@ -47,30 +45,23 @@ export default defineConfig({
   react: {
     checkNonJSXFiles: true,
     additionalHooks: ['useAbortableEffect'],
-    next: true,
-    reactCompiler: true,
   },
-  unocss: true,
-  storybook: true,
 });
 ```
 
-By default, the most commonly used parts (JavaScript, TypeScript, Markdown, JSON, YAML, ...) are included in the main package `@hellolin-eslint/config`.
-
-If you want to use Node.js, React, Storybook or UnoCSS features (i.e. enable the corresponding config item), you need to install additional plugins:
+Some modules are not included in the main package `@hellolin-eslint/copnfig`. To use React features, for example, you need to install an additional plugin:
 
 ```shell
 pnpm install -D @hellolin-eslint/react-config
-pnpm install -D @hellolin-eslint/unocss-config
 ```
 
-Or you can run the lint command once, and the CLI will prompt you to install the required but missing dependencies automatically.
+Alternatively you can run the lint command once, and the CLI will prompt you to install missing dependencies automatically.
 
 ## Editor support
 
 ### VSCode
 
-To integrate with VSCode, install [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint), then add the following settings to `.vscode/settings.json`:
+Make sure the [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) is installed, then add the following settings to `.vscode/settings.json`:
 
 ```json
 {
@@ -116,7 +107,7 @@ To integrate with VSCode, install [ESLint extension](https://marketplace.visuals
 
 ## Acknowledgements
 
-This project is inspired by [@antfu/eslint-config](https://github.com/antfu/eslint-config) and [eslint-config-sukka](https://github.com/SukkaW/eslint-config-sukka).
+This project is inspired by [@antfu/eslint-config](https://github.com/antfu/eslint-config), [@sxzz/eslint-config](https://github.com/sxzz/eslint-config), and [eslint-config-sukka](https://github.com/SukkaW/eslint-config-sukka).
 
 ## License
 
