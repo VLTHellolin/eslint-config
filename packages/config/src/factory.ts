@@ -13,6 +13,7 @@ import { commands } from './modules/commands';
 import { ignores } from './modules/ignores';
 import { imports } from './modules/imports';
 import { javascript } from './modules/javascript';
+import { jsdoc } from './modules/jsdoc';
 import { json } from './modules/json';
 import { markdown } from './modules/markdown';
 import { node } from './modules/node';
@@ -73,6 +74,7 @@ export const defineConfig = async (options: ESLintConfigOptions = {}): Promise<F
   config.push(
     ignores(ignoresOptions),
     javascript({ env }),
+    jsdoc(),
     commands(),
     imports(importsOptions),
     json(),
