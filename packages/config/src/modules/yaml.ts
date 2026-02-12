@@ -5,7 +5,7 @@ import parserYaml from 'yaml-eslint-parser';
 export const yaml = (): FlatConfigItem[] => {
   return [
     {
-      name: 'hellolin/yaml',
+      name: 'hellolin/yaml/yaml',
       files: ['**/*.y?(a)ml'],
       plugins: { yaml: pluginYaml as any },
       languageOptions: {

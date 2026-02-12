@@ -30,7 +30,7 @@ export const pnpm = (options: PnpmOptions = {}): FlatConfigItem[] => {
         parser: parserJson,
       },
       plugins: {
-        pnpm: pluginPnpm,
+        pnpm: memorizedPluginPnpm,
       },
       /// keep-sorted
       rules: {
@@ -45,7 +45,7 @@ export const pnpm = (options: PnpmOptions = {}): FlatConfigItem[] => {
         parser: parserYaml,
       },
       plugins: {
-        pnpm: pluginPnpm,
+        pnpm: memorizedPluginPnpm,
       },
       /// keep-sorted
       rules: {
