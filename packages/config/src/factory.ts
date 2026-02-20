@@ -8,7 +8,6 @@ import type { MarkdownOptions } from './modules/markdown';
 import type { PnpmOptions } from './modules/pnpm';
 import type { TypeScriptOptions } from './modules/typescript';
 import { detectNode, detectPnpm } from '@hellolin-eslint/shared';
-import { requirePackage } from '@hellolin-eslint/shared';
 import { commands } from './modules/commands';
 import { ignores } from './modules/ignores';
 import { imports } from './modules/imports';
@@ -20,6 +19,7 @@ import { node } from './modules/node';
 import { pnpm } from './modules/pnpm';
 import { typescript } from './modules/typescript';
 import { yaml } from './modules/yaml';
+import { requirePackage } from './utils/require-package';
 
 export interface ESLintConfigOptions {
   /**

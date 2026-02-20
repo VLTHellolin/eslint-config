@@ -29,9 +29,29 @@
     "build": "tsdown"
   },
   "peerDependencies": {
+    "@hellolin-eslint/react-compiler-config": "workspace:*",
+    "@hellolin-eslint/react-config": "workspace:*",
+    "@hellolin-eslint/storybook-config": "workspace:*",
+    "@hellolin-eslint/unocss-config": "workspace:*",
     "eslint": ">=9"
   },
+  "peerDependenciesMeta": {
+    "@hellolin-eslint/react-compiler-config": {
+      "optional": true
+    },
+    "@hellolin-eslint/react-config": {
+      "optional": true
+    },
+    "@hellolin-eslint/storybook-config": {
+      "optional": true
+    },
+    "@hellolin-eslint/unocss-config": {
+      "optional": true
+    }
+  },
   "dependencies": {
+    "@antfu/install-pkg": "^1.1.0",
+    "@clack/prompts": "^0.11.0",
     "@eslint/markdown": "^7.5.1",
     "@hellolin-eslint/plugin": "workspace:*",
     "@hellolin-eslint/shared": "workspace:*",
@@ -51,6 +71,7 @@
     "eslint-plugin-yml": "^1.19.1",
     "globals": "^17.3.0",
     "jsonc-eslint-parser": "^2.4.2",
+    "local-pkg": "^1.1.2",
     "yaml-eslint-parser": "^1.3.2"
   },
   "devDependencies": {
