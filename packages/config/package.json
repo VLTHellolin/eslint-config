@@ -72,7 +72,7 @@
     "globals": "^17.3.0",
     "jsonc-eslint-parser": "^2.4.2",
     "local-pkg": "^1.1.2",
-    "yaml-eslint-parser": "^1.3.2"
+    "yaml-eslint-parser": "^2.0.0"
   },
   "devDependencies": {
     "@hellolin-eslint/react-compiler-config": "workspace:*",
