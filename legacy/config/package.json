@@ -1,7 +1,7 @@
 {
   "name": "@hellolin/eslint-config",
   "type": "module",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "[Use @hellolin-eslint/config instead] Opinionated ESLint config for frontend developers.",
   "author": "hellolin <i@hellolin.top>",
   "license": "MIT",
