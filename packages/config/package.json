@@ -51,7 +51,7 @@
   },
   "dependencies": {
     "@antfu/install-pkg": "^1.1.0",
-    "@clack/prompts": "^0.11.0",
+    "@clack/prompts": "^1.0.1",
     "@eslint/markdown": "^7.5.1",
     "@hellolin-eslint/plugin": "workspace:*",
     "@hellolin-eslint/shared": "workspace:*",
