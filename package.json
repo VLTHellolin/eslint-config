@@ -9,15 +9,18 @@
     "test": "vitest",
     "build": "nx run-many -t build",
     "lint": "eslint --cache .",
-    "lint:fix": "eslint --cache --fix ."
+    "lint:fix": "eslint --cache --fix .",
+    "release": "node ./scripts/release.ts"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^20.4.1",
     "@hellolin-eslint/config": "workspace:*",
     "commitlint": "^20.4.1",
     "eslint": "catalog:",
+    "execa": "^9.6.1",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
+    "mri": "^1.2.0",
     "nx": "^22.4.5",
     "typescript": "^6.0.2",
     "vitest": "catalog:"

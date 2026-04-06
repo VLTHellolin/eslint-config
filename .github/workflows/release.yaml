@@ -1,13 +1,26 @@
 name: Release
 
-env:
-  NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+concurrency:
+  group: release
+  cancel-in-progress: false
 
 on:
-  push:
-    tags:
-      - 'v*'
-  workflow_dispatch: null
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Override version'
+        required: false
+        type: string
+      dry_run:
+        description: 'Whether to perform a dry run'
+        required: true
+        default: true
+        type: boolean
+      first_release:
+        description: 'Whether at least 1 package is being released for the first time'
+        required: true
+        default: false
+        type: boolean
 
 jobs:
   release:
@@ -41,10 +54,11 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Generate Changelog
-        run: pnpm dlx changelogithub
+      - name: Release and publish
+        run: |
+          pnpm run release --verbose \
+            --version=${{ inputs.version }} \
+            --dry-run=${{ inputs.dry_run }} \
+            --first-release=${{ inputs.first_release }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Publish to npm
-        run: pnpm publish -r --no-git-checks --access public
+          NPM_CONFIG_PROVENANCE: true
