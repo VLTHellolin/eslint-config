@@ -1,6 +1,6 @@
 import { $ } from 'execa';
 import mri from 'mri';
-import { releaseChangelog, releasePublish, releaseVersion } from 'nx/release';
+import { releaseChangelog, releasePublish, releaseVersion } from 'nx/release/index.js';
 
 if (process.env.CI !== 'true') {
   process.exit(1);

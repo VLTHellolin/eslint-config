@@ -10,15 +10,18 @@
     "build": "nx run-many -t build",
     "lint": "eslint --cache .",
     "lint:fix": "eslint --cache --fix .",
-    "release": "node ./scripts/release.ts"
+    "release": "node ./scripts/release.ts",
+    "knip": "knip"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^20.4.1",
     "@hellolin-eslint/config": "workspace:*",
+    "@types/node": "^25.5.0",
     "commitlint": "^20.4.1",
     "eslint": "catalog:",
     "execa": "^9.6.1",
     "husky": "^9.1.7",
+    "knip": "^6.3.0",
     "lint-staged": "^16.2.7",
     "mri": "^1.2.0",
     "nx": "^22.4.5",
