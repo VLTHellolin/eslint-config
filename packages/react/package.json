@@ -25,7 +25,7 @@
     "build": "tsdown"
   },
   "dependencies": {
-    "@eslint-react/eslint-plugin": "^2.12.1",
+    "@eslint-react/eslint-plugin": "^4.2.3",
     "@hellolin-eslint/shared": "workspace:*",
     "@next/eslint-plugin-next": "^16.1.6",
     "eslint-plugin-jsx-a11y": "^6.10.2",
