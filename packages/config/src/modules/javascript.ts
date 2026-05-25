@@ -2,6 +2,7 @@ import type { FlatConfigItem } from '@hellolin-eslint/shared';
 import pluginHellolin from '@hellolin-eslint/plugin';
 import { memorize } from '@hellolin-eslint/shared';
 import pluginStylistic from '@stylistic/eslint-plugin';
+import pluginDeMorgan from 'eslint-plugin-de-morgan';
 import pluginPerfectionist from 'eslint-plugin-perfectionist';
 import * as pluginRegExp from 'eslint-plugin-regexp';
 import pluginUnicorn from 'eslint-plugin-unicorn';
@@ -211,9 +212,12 @@ export const javascript = (options: JavaScriptOptions = {}): FlatConfigItem[] =>
       plugins: {
         perfectionist: memorize(pluginPerfectionist, 'eslint-plugin-perfectionist'),
         style: memorize(pluginStylistic, '@stylistic/eslint-plugin'),
+        'de-morgan': memorize(pluginDeMorgan, 'eslint-plugin-de-morgan'),
       },
       /// keep-sorted
       rules: {
+        'de-morgan/no-negated-conjunction': 'warn',
+        'de-morgan/no-negated-disjunction': 'warn',
         'perfectionist/sort-exports': ['error', { type: 'natural' }],
         'perfectionist/sort-imports': ['error', {
           groups: [
