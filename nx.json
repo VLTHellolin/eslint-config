@@ -2,19 +2,33 @@
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "nxCloudId": "698767c3a554a970c7d8db46",
   "namedInputs": {
-    "default": ["{projectRoot}/src/**/*"],
-    "production": ["default", "!{projectRoot}/src/**/*.test.{ts,tsx,js,jsx}"]
+    "default": [
+      "{projectRoot}/src/**/*"
+    ],
+    "production": [
+      "default",
+      "!{projectRoot}/src/**/*.test.{ts,tsx,js,jsx}"
+    ]
   },
   "targetDefaults": {
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": [
+        "^build"
+      ],
       "cache": true,
-      "inputs": ["production", "^production"],
-      "outputs": ["{projectRoot}/dist/**"]
+      "inputs": [
+        "production",
+        "^production"
+      ],
+      "outputs": [
+        "{projectRoot}/dist/**"
+      ]
     }
   },
   "release": {
-    "projects": ["*"],
+    "projects": [
+      "*"
+    ],
     "projectsRelationship": "fixed",
     "version": {
       "conventionalCommits": true,
@@ -29,5 +43,6 @@
       },
       "projectChangelogs": false
     }
-  }
+  },
+  "analytics": false
 }
