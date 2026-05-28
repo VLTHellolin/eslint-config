@@ -30,6 +30,6 @@
     "eslint": "*"
   },
   "dependencies": {
-    "@hellolin-eslint/config": "workspace:*"
+    "@hellolin-eslint/config": "workspace:"
   }
 }

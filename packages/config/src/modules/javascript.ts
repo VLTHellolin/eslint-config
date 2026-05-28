@@ -1,7 +1,9 @@
 import type { FlatConfigItem } from '@hellolin-eslint/shared';
+import pluginE18e from '@e18e/eslint-plugin';
 import pluginHellolin from '@hellolin-eslint/plugin';
 import { memorize } from '@hellolin-eslint/shared';
 import pluginStylistic from '@stylistic/eslint-plugin';
+import pluginDeMorgan from 'eslint-plugin-de-morgan';
 import pluginPerfectionist from 'eslint-plugin-perfectionist';
 import * as pluginRegExp from 'eslint-plugin-regexp';
 import pluginUnicorn from 'eslint-plugin-unicorn';
@@ -137,9 +139,29 @@ export const javascript = (options: JavaScriptOptions = {}): FlatConfigItem[] =>
       plugins: {
         hellolin: memorize(pluginHellolin, '@hellolin-eslint/plugin'),
         unicorn: memorize(pluginUnicorn, 'eslint-plugin-unicorn'),
+        e18e: memorize(pluginE18e, '@e18e/eslint-plugin'),
       },
       /// keep-sorted
       rules: {
+        'e18e/no-delete-property': 'warn',
+        'e18e/no-spread-in-reduce': 'warn',
+        'e18e/prefer-array-at': 'warn',
+        'e18e/prefer-array-fill': 'error',
+        'e18e/prefer-array-from-map': 'warn',
+        'e18e/prefer-array-some': 'warn',
+        'e18e/prefer-array-to-reversed': 'warn',
+        'e18e/prefer-array-to-sorted': 'warn',
+        'e18e/prefer-array-to-spliced': 'warn',
+        'e18e/prefer-date-now': 'error',
+        'e18e/prefer-exponentiation-operator': 'warn',
+        'e18e/prefer-includes': 'error',
+        'e18e/prefer-inline-equality': 'warn',
+        'e18e/prefer-nullish-coalescing': 'warn',
+        'e18e/prefer-object-has-own': 'warn',
+        'e18e/prefer-static-collator': 'warn',
+        'e18e/prefer-string-fromcharcode': 'error',
+        'e18e/prefer-timer-args': 'warn',
+        'e18e/prefer-url-canparse': 'error',
         'hellolin/top-level-arrow-function': 'warn',
         'unicorn/consistent-assert': 'error',
         'unicorn/consistent-function-scoping': 'error',
@@ -211,9 +233,12 @@ export const javascript = (options: JavaScriptOptions = {}): FlatConfigItem[] =>
       plugins: {
         perfectionist: memorize(pluginPerfectionist, 'eslint-plugin-perfectionist'),
         style: memorize(pluginStylistic, '@stylistic/eslint-plugin'),
+        'de-morgan': memorize(pluginDeMorgan, 'eslint-plugin-de-morgan'),
       },
       /// keep-sorted
       rules: {
+        'de-morgan/no-negated-conjunction': 'warn',
+        'de-morgan/no-negated-disjunction': 'warn',
         'perfectionist/sort-exports': ['error', { type: 'natural' }],
         'perfectionist/sort-imports': ['error', {
           groups: [
