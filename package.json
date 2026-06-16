@@ -17,11 +17,11 @@
     "@nx/js": "^22.7.5"
   },
   "devDependencies": {
-    "@commitlint/config-conventional": "^20.5.3",
+    "@commitlint/config-conventional": "^21.0.2",
     "@hellolin-eslint/config": "workspace:*",
     "@types/node": "^25.9.1",
     "bumpp": "^11.1.0",
-    "commitlint": "^20.5.3",
+    "commitlint": "^21.0.2",
     "eslint": "catalog:",
     "husky": "^9.1.7",
     "knip": "^6.14.2",
