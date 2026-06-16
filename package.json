@@ -1,9 +1,9 @@
 {
   "name": "@hellolin-eslint/monorepo",
   "type": "module",
-  "version": "5.0.2",
+  "version": "6.0.0-beta.1",
   "private": true,
-  "packageManager": "pnpm@10.34.1",
+  "packageManager": "pnpm@11.7.0",
   "scripts": {
     "prepare": "husky",
     "test": "vitest",
@@ -20,13 +20,12 @@
     "@commitlint/config-conventional": "^20.5.3",
     "@hellolin-eslint/config": "workspace:*",
     "@types/node": "^25.9.1",
+    "bumpp": "^11.1.0",
     "commitlint": "^20.5.3",
     "eslint": "catalog:",
-    "execa": "^9.6.1",
     "husky": "^9.1.7",
     "knip": "^6.14.2",
     "lint-staged": "^16.4.0",
-    "mri": "^1.2.0",
     "nx": "^22.7.5",
     "typescript": "^6.0.3",
     "vitest": "catalog:"

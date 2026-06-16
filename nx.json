@@ -25,24 +25,5 @@
       ]
     }
   },
-  "release": {
-    "projects": [
-      "*"
-    ],
-    "projectsRelationship": "fixed",
-    "version": {
-      "conventionalCommits": true,
-      "preserveMatchingDependencyRanges": true
-    },
-    "releaseTag": {
-      "pattern": "v{version}"
-    },
-    "changelog": {
-      "workspaceChangelog": {
-        "createRelease": "github"
-      },
-      "projectChangelogs": false
-    }
-  },
   "analytics": false
 }
