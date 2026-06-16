@@ -41,7 +41,7 @@
     "@antfu/install-pkg": "^1.1.0",
     "@clack/prompts": "^1.4.0",
     "@e18e/eslint-plugin": "^0.5.0",
-    "@eslint/markdown": "^7.5.1",
+    "@eslint/markdown": "^8.0.2",
     "@hellolin-eslint/plugin": "workspace:^",
     "@hellolin-eslint/shared": "workspace:^",
     "@stylistic/eslint-plugin": "^5.10.0",
