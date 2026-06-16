@@ -5,22 +5,9 @@ concurrency:
   cancel-in-progress: false
 
 on:
-  workflow_dispatch:
-    inputs:
-      version:
-        description: 'Override version'
-        required: false
-        type: string
-      dry_run:
-        description: 'Whether to perform a dry run'
-        required: true
-        default: true
-        type: boolean
-      first_release:
-        description: 'Whether at least 1 package is being released for the first time'
-        required: true
-        default: false
-        type: boolean
+  push:
+    tags:
+      - 'v*'
 
 jobs:
   release:
@@ -34,11 +21,6 @@ jobs:
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
-
-      - name: Setup GitHub Action identity
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v5
@@ -54,16 +36,21 @@ jobs:
         run: npm install -g npm@latest
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: |
+          pnpm config set --location=global minimumReleaseAge 0
+          pnpm install --frozen-lockfile
 
       - name: Build
         run: pnpm build
 
+      - name: Generate changelog
+        run: pnpm dlx changelogithub
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Release and publish
         run: |
-          pnpm run release --verbose \
-            --version=${{ inputs.version }} \
-            --dry-run=${{ inputs.dry_run }} \
-            --first-release=${{ inputs.first_release }}
+          pnpm -r publish --provenance --no-git-checks --access public
         env:
           NPM_CONFIG_PROVENANCE: true

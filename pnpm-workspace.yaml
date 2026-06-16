@@ -2,6 +2,9 @@ packages:
   - legacy/*
   - packages/*
 
+allowBuilds:
+  nx: true
+
 catalog:
   eslint: ^9.39.4
   tsdown: ^0.20.3
