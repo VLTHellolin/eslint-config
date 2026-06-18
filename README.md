@@ -1,6 +1,6 @@
 > [!important]
 >
-> Moved: For new projects, please use [eslint-config-silvecor](https://github.com/silvecor/eslint-config) instead.
+> Moved: For new projects, please use [eslint-config-silvecor](https://github.com/silvecor/eslint-config-silvecor) instead.
 
 # @hellolin-eslint/config 📐
 
