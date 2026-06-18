@@ -1,3 +1,7 @@
+> [!important]
+>
+> Moved: For new projects, please use [eslint-config-silvecor](https://github.com/silvecor/eslint-config) instead.
+
 # @hellolin-eslint/config 📐
 
 [![NPM Version](https://img.shields.io/npm/v/%40hellolin-eslint%2Fconfig?style=flat-square)](https://npmjs.com/package/@hellolin-eslint/config)
